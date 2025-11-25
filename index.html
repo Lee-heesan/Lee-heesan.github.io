@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -16,6 +15,14 @@
     <div class="nav-btn" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">
       🏠
       <span class="tooltip">Home</span>
+    </div>
+    <div class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      🙋‍♂️
+      <span class="tooltip">About</span>
+    </div>
+    <div class="nav-btn" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">
+      🚀
+      <span class="tooltip">Experience</span>
     </div>
     <div class="nav-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
       💻
@@ -30,11 +37,9 @@
         <div class="name">이희산</div>
         <div class="role">백엔드 개발자 포트폴리오</div>
       </div>
-
-      <div class="scroll-hint" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-hint" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
         <span></span>SCROLL
       </div>
-
       <svg id="svg" viewBox="0 0 1000 1000">
         <defs>
           <radialGradient id="liquidGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -46,6 +51,435 @@
       </svg>
     </section>
 
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-sub">보이지 않는 곳에서 견고한 가치를 만드는 개발자</p>
+        </div>
+
+        <div class="about-top">
+          <div class="profile-area">
+            <div class="profile-img-box">
+              <img src="assets/profile.webp" alt="이희산 프로필" class="profile-img">
+            </div>
+          </div>
+          <div class="intro-area">
+            <div class="about-text-box">
+              <p class="greeting">"안녕하세요, 이희산입니다."</p>
+              <p class="desc">
+                사용자에게 더 나은 경험을 제공하기 위해<br>
+                <strong>효율적인 구조</strong>와 <strong>안정적인 서버</strong>를 고민합니다.<br><br>
+                새로운 기술에 호기심이 많으며, 문제를 해결하는 과정에서<br>
+                배우고 성장하는 것을 즐깁니다.<br>
+                동료와의 원활한 소통을 통해 함께 가치를 만들어갑니다.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bio-info-grid">
+          
+          <div class="bio-card">
+            <div class="bio-icon">🎓</div>
+            <h3 class="bio-title">Education</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">동서대학교 졸업</span>
+                <span class="bio-sub">2018.03 ~ 2024.02</span>
+                <span class="bio-desc">학점 4.35</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-icon">🏆</div>
+            <h3 class="bio-title">Awards</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">SSAFY 관통 프로젝트</span>
+                <span class="bio-sub">최우수상 (1등)</span>
+              </li>
+              <li>
+                <span class="bio-main">SSAFY 공통 프로젝트</span>
+                <span class="bio-sub">우수상 (1등)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-icon">📜</div>
+            <h3 class="bio-title">Certificates</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">정보처리기사</span>
+                <span class="bio-sub">한국산업인력공단</span>
+              </li>
+              <li>
+                <span class="bio-main">SQLD</span>
+                <span class="bio-sub">한국데이터산업진흥원</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+       <div class="tech-stack-container">
+          <h3 class="tech-main-title">Tech Stack</h3>
+          
+          <div class="tech-category">
+            <h4 class="category-title">Programming Language</h4>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Java</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">C++</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Python</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h4 class="category-title">Framework & Library</h4>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Spring Boot</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="assets/spring security.png" class="tech-icon filter-green" alt="icon">
+                  <span class="tech-name">Spring Security</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">JPA</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">SSE</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h4 class="category-title">Database & Middleware</h4>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">MySQL</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Redis</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">RabbitMQ</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="assets/minio.png" class="tech-icon" alt="icon">
+                  <span class="tech-name">MinIO</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">S3</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category">
+            <h4 class="category-title">Development Tools</h4>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">IntelliJ IDEA</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Eclipse</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Docker</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">AWS</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         <div class="tech-category">
+            <h4 class="category-title">Collaboration</h4>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Notion</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" class="tech-icon" alt="icon"> <span class="tech-name">Github</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Slack</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mattermost/mattermost-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Mattermost</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Jira</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+              <div class="tech-card">
+                <div class="tech-info">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="tech-icon" alt="icon">
+                  <span class="tech-name">Figma</span>
+                </div>
+                <div class="tech-rating">
+                  <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+   <section class="experience-section" id="experience">
+      <div class="experience-inner">
+        <div class="experience-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-sub">성장을 위해 끊임없이 도전해온 기록들</p>
+        </div>
+
+        <div class="exp-list">
+          
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp1.png" alt="SSAFY 활동 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2025.01 ~ 현재</div>
+              <h3 class="exp-title">삼성청년SW아카데미 (SSAFY) 13기</h3>
+              <p class="exp-role">교육생 (Java 전공)</p>
+              <ul class="exp-desc-list">
+                <li>알고리즘 및 CS 지식 심화 학습</li>
+                <li>Spring Boot 기반의 백엔드 실무 프로젝트 진행</li>
+                <li>Agile 방법론을 적용한 협업 경험</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp7.png" alt="싸피셜 활동 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2025.02 ~ 현재</div> <h3 class="exp-title">SSAFYcial (싸피셜) 기자단 13기</h3>
+              <p class="exp-role">콘텐츠 에디터 / 기자</p>
+              <ul class="exp-desc-list">
+                <li>SSAFY 내 다양한 교육 과정 및 행사 취재</li>
+                <li>개발자 인터뷰 및 기술 관련 카드뉴스/블로그 콘텐츠 제작</li>
+                <li>공식 SNS 채널을 통한 교육생 소통 및 홍보 활동</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp2.jpg" alt="인턴십 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2023.08 ~ 2024.03</div>
+              <h3 class="exp-title">IT 기업 인턴십</h3>
+              <p class="exp-role">백엔드 개발 인턴</p>
+              <ul class="exp-desc-list">
+                <li>사내 ERP 시스템 유지보수 및 API 개선</li>
+                <li>레거시 코드 리팩토링을 통한 성능 최적화</li>
+                <li>현업 개발 프로세스 및 코드 리뷰 경험</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp3.webp" alt="학술엑스포 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2023.11</div>
+              <h3 class="exp-title">2023 학술엑스포 (쇼미더동서 AI)</h3>
+              <p class="exp-role">SW-AI 프로그램 성과 전시</p>
+              <ul class="exp-desc-list">
+                <li>'식단 관리 구독 서비스' 프로젝트 부스 운영 및 시연</li>
+                <li>관람객 대상 서비스 로직 설명 및 피드백 수집</li>
+                <li>최우수 성과상 수상 (가상의 수상 내역, 수정 가능)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp4.webp" alt="카카오 부트캠프 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2022.10</div>
+              <h3 class="exp-title">카카오엔터프라이즈 클라우드 부트캠프</h3>
+              <p class="exp-role">교육 수료생</p>
+              <ul class="exp-desc-list">
+                <li>클라우드 인프라 기초 및 Kubernetes 실습</li>
+                <li>MSA 아키텍처에 대한 이해 및 컨테이너 배포 경험</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp5.webp" alt="해외 교육 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2021.11 ~ 2022.02</div>
+              <h3 class="exp-title">필리핀 UC대학교 동계 해외교육</h3>
+              <p class="exp-role">어학 및 프로그래밍 연수</p>
+              <ul class="exp-desc-list">
+                <li>1:1 영어 회화 화상 강의 수료</li>
+                <li>현지 학생들과의 프로그래밍 프로젝트 협업</li>
+                <li>글로벌 커뮤니케이션 역량 강화</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp6.webp" alt="튜터링 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2021.10 ~ 2021.12</div>
+              <h3 class="exp-title">창의적 생활코딩 튜터링</h3>
+              <p class="exp-role">SW중심대학사업단 튜터(Tutor)</p>
+              <ul class="exp-desc-list">
+                <li>저학년 학생 대상 프로그래밍 기초 멘토링</li>
+                <li>알고리즘 문제 풀이 가이드 및 코드 리뷰</li>
+                <li>학습 동기 부여 및 진로 상담 진행</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section class="projects-section" id="projects">
       <div class="projects-inner">
         <div class="projects-header">
@@ -54,7 +488,6 @@
         </div>
 
         <div class="card-grid">
-          
           <article class="project-card">
             <div class="project-bg" style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');"></div>
             <div class="project-overlay">
@@ -92,7 +525,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-bg" style="background-image:url('https://via.placeholder.com/500x500/000000/ffffff?text=APT.ZIP'); opacity: 0.6;"></div>
+            <div class="project-bg" style="background-image:url('assets/aptZip.png'); opacity: 0.6;"></div>
             <div class="project-overlay">
               <div class="project-info">
                 <div class="project-tagline">Real Estate Service</div>
@@ -104,7 +537,7 @@
           </article>
 
           <article class="project-card">
-            <div class="project-bg" style="background-image:url('https://via.placeholder.com/500x500/051c0d/ffffff?text=FRIENDS+FOOD'); opacity: 0.6;"></div>
+            <div class="project-bg" style="background-image:url('assets/friendsFood.png'); opacity: 0.6;"></div>
             <div class="project-overlay">
               <div class="project-info">
                 <div class="project-tagline">E-Commerce</div>
@@ -114,7 +547,6 @@
               <div class="project-arrow">↗</div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
