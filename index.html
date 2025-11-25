@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Liquid Bubble Wave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #1a1f35 0%, #050505 100%);
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+    }
+
+    /* 텍스트 컨테이너 */
+    .bubble-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      z-index: 10;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      padding: 0 24px;
+    }
+
+    .hello {
+      font-size: 1.35rem;          /* 1.2 → 1.35 */
+      opacity: 0.9;
+      margin-bottom: 6px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .name {
+      font-size: 3.4rem;           /* 3.0 → 3.4 */
+      font-weight: 700;
+      letter-spacing: 0.12em;      /* 살짝 벌려서 포트폴리오 느낌 */
+      background: linear-gradient(to right, #ffffff, #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .role {
+      font-size: 1.25rem;          /* 1.1 → 1.25 */
+      color: #cbd5f5;
+      margin-top: 10px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
+
+    /* SVG 스타일 */
+    svg {
+      width: 100vmin;
+      height: 100vmin;
+      pointer-events: all;
+      filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.3));
+    }
+
+    /* 배경 글로우 효과 */
+    .glow-bg {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: pulse 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.5; }
+      100% { transform: scale(1.1); opacity: 0.85; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-bg"></div>
+
+  <div class="bubble-text">
+    <div class="hello">안녕하세요,</div>
+    <div class="name">이희산</div>
+    <div class="role">백엔드 개발자입니다.</div>
+  </div>
+
+  <svg id="svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="liquidGrad" cx="30%" cy="30%" r="80%" fx="30%" fy="30%">
+        <stop offset="0%"  stop-color="rgba(255, 255, 255, 0.3)" />
+        <stop offset="20%" stop-color="rgba(255, 255, 255, 0.1)" />
+        <stop offset="60%" stop-color="rgba(99, 102, 241, 0.1)" />
+        <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
+      </radialGradient>
+      
+      <linearGradient id="strokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"   stop-color="rgba(255,255,255,0.8)" />
+        <stop offset="50%"  stop-color="rgba(99, 102, 241, 0.4)" />
+        <stop offset="100%" stop-color="rgba(255,255,255,0.1)" />
+      </linearGradient>
+    </defs>
+
+    <path id="blob" fill="url(#liquidGrad)" stroke="url(#strokeGrad)" stroke-width="2"></path>
+  </svg>
+
+<script>
+const svg  = document.getElementById("svg");
+const path = document.getElementById("blob");
+
+// 설정값
+const CENTER     = { x: 500, y: 500 };
+const RADIUS     = 380;   // 이미 키운 값 유지
+const POINTS     = 24;
+const VISCOSITY  = 0.1;
+const ELASTICITY = 0.08;
+const MOUSE_FORCE = 80;
+
+let points = [];
+
+// 초기 점 배치
+for (let i = 0; i < POINTS; i++) {
+  const angle = (i / POINTS) * Math.PI * 2;
+  points.push({
+    x: CENTER.x + Math.cos(angle) * RADIUS,
+    y: CENTER.y + Math.sin(angle) * RADIUS,
+    originX: CENTER.x + Math.cos(angle) * RADIUS,
+    originY: CENTER.y + Math.sin(angle) * RADIUS,
+    vx: 0,
+    vy: 0,
+    angle
+  });
+}
+
+let mouse   = { x: 0, y: 0 };
+let isMoved = false;
+
+// Catmull-Rom → Bezier
+function spline(points, close = true) {
+  if (!points.length) return "";
+  const p = i => points[(i + points.length) % points.length];
+
+  let d = `M ${points[0].x} ${points[0].y}`;
+
+  for (let i = 0; i < points.length; i++) {
+    const p0 = p(i - 1);
+    const p1 = p(i);
+    const p2 = p(i + 1);
+    const p3 = p(i + 2);
+
+    const cp1x = p1.x + (p2.x - p0.x) / 6;
+    const cp1y = p1.y + (p2.y - p0.y) / 6;
+    const cp2x = p2.x - (p3.x - p1.x) / 6;
+    const cp2y = p2.y - (p3.y - p1.y) / 6;
+
+    d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y}`;
+  }
+  return close ? d + " Z" : d;
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  const time = Date.now() * 0.002;
+
+  points.forEach(pt => {
+    // 자연스러운 출렁임
+    const noiseX = Math.cos(pt.angle * 3 + time) * 5;
+    const noiseY = Math.sin(pt.angle * 2 + time) * 5;
+
+    // 마우스 인터랙션
+    const dx = mouse.x - pt.x;
+    const dy = mouse.y - pt.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < 200 && isMoved) {
+      const force = (200 - dist) / 200;
+      const ang   = Math.atan2(dy, dx);
+      pt.vx -= Math.cos(ang) * force * 3.0;
+      pt.vy -= Math.sin(ang) * force * 3.0;
+    }
+
+    // 스프링 복원력
+    const ox = pt.originX + noiseX;
+    const oy = pt.originY + noiseY;
+
+    const springX = (ox - pt.x) * ELASTICITY;
+    const springY = (oy - pt.y) * ELASTICITY;
+
+    pt.vx += springX;
+    pt.vy += springY;
+
+    // 감쇠
+    pt.vx *= (1 - VISCOSITY);
+    pt.vy *= (1 - VISCOSITY);
+
+    pt.x += pt.vx;
+    pt.y += pt.vy;
+  });
+
+  path.setAttribute("d", spline(points));
+}
+
+window.addEventListener("mousemove", e => {
+  isMoved = true;
+
+  const rect   = svg.getBoundingClientRect();
+  const scaleX = 1000 / rect.width;
+  const scaleY = 1000 / rect.height;
+
+  mouse.x = (e.clientX - rect.left) * scaleX;
+  mouse.y = (e.clientY - rect.top) * scaleY;
+
+  clearTimeout(window.mouseTimer);
+  window.mouseTimer = setTimeout(() => { isMoved = false; }, 1000);
+});
+
+animate();
+</script>
+
+</body>
+</html>
