@@ -1,0 +1,297 @@
+/* ============================
+   0. 기본 초기화 & 스크롤 스냅 설정
+   ============================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%; /* 스냅 동작을 위해 높이 100% 필수 */
+  
+  /* ▼▼▼ 스크롤 스냅 핵심 코드 ▼▼▼ */
+  scroll-snap-type: y mandatory; /* y축으로 강제 스냅 */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* 섹션 공통 설정 */
+section {
+  width: 100%;
+  position: relative;
+  /* 화면 꽉 차게 설정 */
+  min-height: 100vh; 
+  
+  /* ▼▼▼ 섹션별 스냅 위치 지정 ▼▼▼ */
+  scroll-snap-align: start; 
+  scroll-snap-stop: always; /* 스크롤 가속 방지 (한 번에 한 칸씩) */
+}
+
+/* ============================
+   1. 네비게이션
+   ============================ */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 18px 10px;
+  background: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: #4b5563;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  transform: scale(1.1);
+}
+
+.nav-btn .tooltip {
+  position: absolute;
+  right: 60px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+.nav-btn:hover .tooltip { opacity: 1; right: 55px; }
+
+
+/* ============================
+   2. Hero Section
+   ============================ */
+.hero-section {
+  height: 100vh; 
+  overflow: hidden; 
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111827;
+}
+
+.bubble-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+  width: 100%;
+}
+
+.bubble-text .hello {
+  font-size: 1.4rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.bubble-text .name {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+
+.bubble-text .role {
+  font-size: 1.3rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+svg#svg {
+  width: 90vmin;
+  height: 90vmin;
+  pointer-events: all;
+  filter: drop-shadow(0 0 30px rgba(79, 70, 229, 0.2)); 
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #9ca3af;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  cursor: pointer; 
+}
+.scroll-hint span {
+  width: 1px; height: 24px;
+  background: linear-gradient(to bottom, #9ca3af, transparent);
+  animation: scrollLine 1.5s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+}
+
+
+/* ============================
+   3. Projects Section
+   ============================ */
+.projects-section {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px; 
+  /* min-height는 유지하되, 내용이 많아도 잘리지 않도록 */
+  height: auto; 
+}
+
+.projects-inner {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.projects-header { margin-bottom: 50px; }
+
+.projects-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.projects-sub {
+  font-size: 18px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: flex-start;
+}
+
+.project-card {
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.project-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: 0.5s;
+  filter: brightness(0.7);
+}
+
+.project-card:hover .project-bg {
+  transform: scale(1.1);
+  filter: brightness(0.5);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+}
+
+.project-info {
+  flex: 1;
+  padding-right: 16px;
+}
+
+.project-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a5b4fc;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-name {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.project-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.project-arrow {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #000;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translate(-10px, 10px);
+}
+
+.project-card:hover .project-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
