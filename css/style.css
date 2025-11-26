@@ -1,15 +1,21 @@
 /* ============================
    0. 기본 초기화 & 스크롤 스냅 설정
    ============================ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   width: 100%;
-  height: 100%; /* 스냅 동작을 위해 높이 100% 필수 */
-  
-  /* ▼▼▼ 스크롤 스냅 핵심 코드 ▼▼▼ */
-  scroll-snap-type: y mandatory; /* y축으로 강제 스냅 */
-  overflow-y: scroll;
+  height: 100%;
+
+  /* ▼▼▼ [수정] mandatory -> proximity 로 변경 (덜 빡빡하게 스냅) ▼▼▼ */
+  scroll-snap-type: y proximity;
+
+  overflow-y: auto;
   scroll-behavior: smooth;
 }
 
@@ -23,12 +29,8 @@ body {
 section {
   width: 100%;
   position: relative;
-  /* 화면 꽉 차게 설정 */
-  min-height: 100vh; 
-  
-  /* ▼▼▼ 섹션별 스냅 위치 지정 ▼▼▼ */
-  scroll-snap-align: start; 
-  scroll-snap-stop: always; /* 스크롤 가속 방지 (한 번에 한 칸씩) */
+  min-height: 100vh;
+  scroll-snap-align: start;
 }
 
 /* ============================
@@ -44,7 +46,7 @@ section {
   flex-direction: column;
   gap: 20px;
   padding: 18px 10px;
-  background: rgba(255, 255, 255, 0.6); 
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -74,7 +76,7 @@ section {
 .nav-btn .tooltip {
   position: absolute;
   right: 60px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 4px 8px;
   border-radius: 4px;
@@ -84,15 +86,19 @@ section {
   transition: 0.2s;
   white-space: nowrap;
 }
-.nav-btn:hover .tooltip { opacity: 1; right: 55px; }
+
+.nav-btn:hover .tooltip {
+  opacity: 1;
+  right: 55px;
+}
 
 
 /* ============================
    2. Hero Section
    ============================ */
 .hero-section {
-  height: 100vh; 
-  overflow: hidden; 
+  height: 100vh;
+  overflow: hidden;
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -102,7 +108,8 @@ section {
 
 .bubble-text {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   pointer-events: none;
@@ -138,27 +145,43 @@ svg#svg {
   width: 90vmin;
   height: 90vmin;
   pointer-events: all;
-  filter: drop-shadow(0 0 30px rgba(79, 70, 229, 0.2)); 
+  filter: drop-shadow(0 0 30px rgba(79, 70, 229, 0.2));
 }
 
 .scroll-hint {
   position: absolute;
-  bottom: 40px; left: 50%;
+  bottom: 40px;
+  left: 50%;
   transform: translateX(-50%);
   font-size: 11px;
   letter-spacing: 0.15em;
   color: #9ca3af;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  cursor: pointer; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
+
 .scroll-hint span {
-  width: 1px; height: 24px;
+  width: 1px;
+  height: 24px;
   background: linear-gradient(to bottom, #9ca3af, transparent);
   animation: scrollLine 1.5s ease-in-out infinite;
 }
+
 @keyframes scrollLine {
-  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-  100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 0;
+  }
 }
 
 
@@ -170,9 +193,9 @@ svg#svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 20px; 
+  padding: 100px 20px;
   /* min-height는 유지하되, 내용이 많아도 잘리지 않도록 */
-  height: auto; 
+  height: auto;
 }
 
 .projects-inner {
@@ -180,7 +203,9 @@ svg#svg {
   width: 100%;
 }
 
-.projects-header { margin-bottom: 50px; }
+.projects-header {
+  margin-bottom: 50px;
+}
 
 .projects-title {
   font-size: 48px;
@@ -212,13 +237,13 @@ svg#svg {
   overflow: hidden;
   background: #000;
   cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
 .project-bg {
@@ -243,7 +268,7 @@ svg#svg {
   justify-content: space-between;
   align-items: flex-end;
   color: #fff;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
 }
 
 .project-info {
@@ -270,7 +295,7 @@ svg#svg {
 
 .project-desc {
   font-size: 15px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 300;
   line-height: 1.4;
 }
@@ -301,7 +326,8 @@ svg#svg {
    ============================ */
 .about-section {
   background: #ffffff;
-  padding: 0 20px; /* 섹션 자체 패딩은 제거하고 내부 요소로 조절 */
+  padding: 0 20px;
+  /* 섹션 자체 패딩은 제거하고 내부 요소로 조절 */
 }
 
 .about-inner {
@@ -313,24 +339,25 @@ svg#svg {
 /* --- [PAGE 1] 헤더 + 프로필 + 자기소개 --- */
 /* 헤더와 내용을 묶어서 첫 화면처럼 보이게 처리 */
 .about-header {
-  padding-top: 100px; /* 상단 여백 */
+  padding-top: 100px;
+  /* 상단 여백 */
   margin-bottom: 40px;
   text-align: center;
 }
 
 .about-top {
   /* 화면 높이에서 헤더 높이만큼 뺀 공간을 차지 */
-  min-height: calc(100vh - 250px); 
+  min-height: calc(100vh - 250px);
   display: flex;
   gap: 60px;
-  
+
   /* ▼▼▼ 여기가 핵심: 내용을 수직 중앙에 정렬 ▼▼▼ */
-  align-items: center; 
+  align-items: center;
   justify-content: center;
-  
+
   margin-bottom: 0;
-  scroll-snap-align: start; /* 스크롤이 여기에 걸림 */
-  scroll-snap-stop: always;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 .section-title {
@@ -348,14 +375,16 @@ svg#svg {
 }
 
 /* 프로필 사진 (3:3.5 비율 유지) */
-.profile-area { flex: 0 0 320px; }
+.profile-area {
+  flex: 0 0 320px;
+}
 
 .profile-img-box {
   width: 100%;
   aspect-ratio: 3 / 3.5;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 4px solid #fff;
 }
 
@@ -366,16 +395,20 @@ svg#svg {
   transition: transform 0.5s ease;
 }
 
-.profile-img-box:hover .profile-img { transform: scale(1.05); }
+.profile-img-box:hover .profile-img {
+  transform: scale(1.05);
+}
 
 /* 소개 텍스트 */
-.intro-area { flex: 1; }
+.intro-area {
+  flex: 1;
+}
 
 .about-text-box {
   background: #f9fafb;
   padding: 40px;
   border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .greeting {
@@ -403,17 +436,17 @@ svg#svg {
 .bio-info-grid {
   /* 한 화면 꽉 차게 설정 */
   min-height: 100vh;
-  
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  
+
   /* ▼▼▼ 내용을 화면 정중앙에 배치 ▼▼▼ */
-  align-content: center; 
-  
+  align-content: center;
+
   margin: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 .bio-card {
@@ -423,7 +456,7 @@ svg#svg {
   border: 1px solid #e5e7eb;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  
+
   /* 카드 내부 수직 중앙 정렬 */
   display: flex;
   flex-direction: column;
@@ -433,10 +466,13 @@ svg#svg {
 .bio-card:hover {
   transform: translateY(-5px);
   border-color: #a5b4fc;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
-.bio-icon { font-size: 40px; margin-bottom: 20px; }
+.bio-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
 
 .bio-title {
   font-size: 20px;
@@ -449,30 +485,60 @@ svg#svg {
   width: 100%;
 }
 
-.bio-list { list-style: none; padding: 0; text-align: left; }
-.bio-list li { margin-bottom: 15px; }
-.bio-list li:last-child { margin-bottom: 0; }
+.bio-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
 
-.bio-main { display: block; font-size: 16px; font-weight: 700; color: #374151; margin-bottom: 4px; }
-.bio-sub { display: block; font-size: 14px; color: #6b7280; font-weight: 400; }
-.bio-desc { display: block; font-size: 14px; color: #4f46e5; font-weight: 600; margin-top: 4px; }
+.bio-list li {
+  margin-bottom: 15px;
+}
+
+.bio-list li:last-child {
+  margin-bottom: 0;
+}
+
+.bio-main {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.bio-sub {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.bio-desc {
+  display: block;
+  font-size: 14px;
+  color: #4f46e5;
+  font-weight: 600;
+  margin-top: 4px;
+}
 
 
 /* --- [PAGE 3] Tech Stack --- */
 .tech-stack-container {
   /* 한 화면 꽉 차게 설정 */
   min-height: 100vh;
-  
+
   display: flex;
   flex-direction: column;
   /* ▼▼▼ 내용을 화면 정중앙에 배치 ▼▼▼ */
-  justify-content: center; 
-  
+  justify-content: center;
+
   margin-top: 0;
   padding: 40px 0;
-  border-top: none; /* 구분선 제거 (화면 단위라 불필요) */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  border-top: none;
+  /* 구분선 제거 (화면 단위라 불필요) */
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 .tech-main-title {
@@ -483,7 +549,10 @@ svg#svg {
   text-align: center;
 }
 
-.tech-category { margin-bottom: 40px; }
+.tech-category {
+  margin-bottom: 40px;
+}
+
 .category-title {
   font-size: 20px;
   font-weight: 700;
@@ -495,7 +564,8 @@ svg#svg {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 카드 크기 최적화 */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* 카드 크기 최적화 */
   gap: 16px;
 }
 
@@ -508,49 +578,85 @@ svg#svg {
   justify-content: space-between;
   transition: transform 0.2s;
 }
+
 .tech-card:hover {
   transform: translateY(-4px);
   border-color: #6366f1;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.tech-info { display: flex; align-items: center; gap: 10px; }
-.tech-icon { width: 26px; height: 26px; object-fit: contain; }
-.tech-name { color: black; font-size: 15px; font-weight: 600; }
+.tech-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-.tech-rating { display: flex; gap: 4px; }
-.box { width: 12px; height: 12px; border-radius: 2px; background-color: #cccccc; }
-.box.filled { background-color: #a5b4fc; box-shadow: 0 0 6px rgba(165, 180, 252, 0.6); }
+.tech-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.tech-name {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tech-rating {
+  display: flex;
+  gap: 4px;
+}
+
+.box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: #cccccc;
+}
+
+.box.filled {
+  background-color: #a5b4fc;
+  box-shadow: 0 0 6px rgba(165, 180, 252, 0.6);
+}
 
 
 /* 모바일 반응형 (세로 배치) */
 @media (max-width: 960px) {
-  .about-top { 
-    flex-direction: column; 
-    text-align: center; 
-    gap: 30px; 
-    min-height: auto; 
+  .about-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    min-height: auto;
     padding-bottom: 60px;
   }
-  .profile-area { flex: 0 0 auto; width: 280px; }
-  .about-text-box { text-align: left; }
-  
+
+  .profile-area {
+    flex: 0 0 auto;
+    width: 280px;
+  }
+
+  .about-text-box {
+    text-align: left;
+  }
+
   .bio-info-grid {
-    grid-template-columns: 1fr; 
-    min-height: auto; 
+    grid-template-columns: 1fr;
+    min-height: auto;
     padding: 60px 0;
   }
-  
+
   .tech-stack-container {
     min-height: auto;
     padding: 60px 0;
   }
 }
+
 /* 하단 Tech Stack */
 .tech-stack-container {
-  margin-top: 150px; 
+  margin-top: 150px;
   padding-top: 40px;
-  border-top: 1px dashed #e5e7eb; 
+  border-top: 1px dashed #e5e7eb;
 }
 
 .tech-main-title {
@@ -581,7 +687,7 @@ svg#svg {
 }
 
 .tech-card {
-  background-color: #ededed; 
+  background-color: #ededed;
   border-radius: 12px;
   padding: 18px 24px;
   display: flex;
@@ -593,7 +699,7 @@ svg#svg {
 .tech-card:hover {
   transform: translateY(-4px);
   border-color: #6366f1;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .tech-info {
@@ -610,6 +716,7 @@ svg#svg {
 .filter-white {
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 }
+
 .filter-green {
   filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }
@@ -629,11 +736,11 @@ svg#svg {
   width: 12px;
   height: 12px;
   border-radius: 2px;
-  background-color: #cccccc; 
+  background-color: #cccccc;
 }
 
 .box.filled {
-  background-color: #a5b4fc; 
+  background-color: #a5b4fc;
   box-shadow: 0 0 6px rgba(165, 180, 252, 0.6);
 }
 
@@ -642,14 +749,16 @@ svg#svg {
    5. [NEW] Experience Section Styles (사진 중심 레이아웃)
    ============================ */
 .experience-section {
-  background: #f9fafb; /* 연한 회색 배경 */
+  background: #f9fafb;
+  /* 연한 회색 배경 */
   display: flex;
   justify-content: center;
   padding: 100px 20px;
 }
 
 .experience-inner {
-  max-width: 1100px; /* 사진 때문에 폭을 조금 넓힘 */
+  max-width: 1100px;
+  /* 사진 때문에 폭을 조금 넓힘 */
   width: 100%;
 }
 
@@ -663,22 +772,25 @@ svg#svg {
   display: flex;
   flex-direction: column;
   /* ▼▼▼ 항목 간 간격을 넓게 설정 (120px) ▼▼▼ */
-  gap: 120px; 
+  gap: 120px;
 }
 
 /* 개별 아이템 (좌우 배치) */
 .exp-item {
   display: flex;
-  align-items: flex-start; /* 위쪽 라인 맞춤 */
-  gap: 60px; /* 사진과 텍스트 사이 간격 */
+  align-items: flex-start;
+  /* 위쪽 라인 맞춤 */
+  gap: 60px;
+  /* 사진과 텍스트 사이 간격 */
 }
 
 /* 왼쪽: 사진 영역 */
 .exp-img-box {
-  flex: 0 0 400px; /* 사진 너비 고정 (원하는 대로 조절 가능) */
+  flex: 0 0 400px;
+  /* 사진 너비 고정 (원하는 대로 조절 가능) */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background: #fff;
 }
 
@@ -690,13 +802,15 @@ svg#svg {
 }
 
 .exp-img-box:hover img {
-  transform: scale(1.03); /* 마우스 올리면 살짝 확대 */
+  transform: scale(1.03);
+  /* 마우스 올리면 살짝 확대 */
 }
 
 /* 오른쪽: 내용 영역 */
 .exp-content {
   flex: 1;
-  padding-top: 10px; /* 사진과 시각적 높이 맞춤 */
+  padding-top: 10px;
+  /* 사진과 시각적 높이 맞춤 */
 }
 
 .exp-date {
@@ -705,14 +819,16 @@ svg#svg {
   color: #111827;
   margin-bottom: 8px;
   display: inline-block;
-  border-bottom: 2px solid #111827; /* 날짜 밑줄 포인트 */
+  border-bottom: 2px solid #111827;
+  /* 날짜 밑줄 포인트 */
   padding-bottom: 2px;
 }
 
 .exp-title {
   font-size: 28px;
   font-weight: 800;
-  color: #8b5cf6; /* 보여주신 사진처럼 보라색 포인트 */
+  color: #8b5cf6;
+  /* 보여주신 사진처럼 보라색 포인트 */
   margin-bottom: 10px;
   line-height: 1.3;
 }
@@ -754,21 +870,537 @@ svg#svg {
 /* --- 모바일 반응형 (좁은 화면) --- */
 @media (max-width: 960px) {
   .exp-item {
-    flex-direction: column; /* 위아래로 배치 변경 */
+    flex-direction: column;
+    /* 위아래로 배치 변경 */
     gap: 20px;
   }
 
   .exp-img-box {
     flex: 0 0 auto;
-    width: 100%; /* 모바일에서는 사진 꽉 차게 */
+    width: 100%;
+    /* 모바일에서는 사진 꽉 차게 */
     max-width: 500px;
   }
 
   .exp-list {
-    gap: 80px; /* 모바일에서는 간격 조금 줄임 */
+    gap: 80px;
+    /* 모바일에서는 간격 조금 줄임 */
   }
-  
+
   .exp-title {
     font-size: 24px;
   }
+}
+
+/* ====================================
+   Project Details Presentation View
+   ==================================== */
+/* ====================================
+   Project Details Presentation View
+   ==================================== */
+.project-details-container {
+  width: 100%;
+  background: #111827;
+  color: #fff;
+}
+
+/* 개별 슬라이드 섹션 */
+.detail-slide {
+  position: relative;
+  min-height: 100vh;
+  /* 85vh → 100vh로 조정 */
+
+  /* ▼▼▼ [핵심 1] 내용을 화면 '하단'으로 내림 ▼▼▼ */
+  display: flex;
+  align-items: flex-end;
+  /* 요소들을 바닥에 붙임 */
+  padding-bottom: 80px;
+  /* 60px → 80px로 조정 */
+  padding-top: 80px;
+  /* 상단 여백 조정 */
+
+  padding-left: 5%;
+  /* 좌우 여백 */
+  padding-right: 5%;
+
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 배경 워터마크 (우측 하단) */
+.bg-text {
+  position: absolute;
+  bottom: -5%;
+  /* 바닥에 더 붙임 */
+  right: -5%;
+  top: auto;
+  /* 중앙 정렬 해제 */
+  transform: none;
+
+  font-size: 14vw;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* 상단 고정 헤더 (제목) */
+.detail-header-top {
+  position: absolute;
+  top: 40px;
+  /* 더 위로 올림 */
+  left: 5%;
+  /* 왼쪽 라인 맞춤 */
+  z-index: 10;
+  color: #fff;
+  text-align: left;
+  overflow: visible;
+}
+
+.detail-tag-top {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #a5b4fc;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.detail-title-top {
+  font-size: 60px;
+  /* 제목 더 크게 */
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.header-divider {
+  width: 100px;
+  height: 4px;
+  background: #4f46e5;
+  /* 보라색 포인트 */
+  border-radius: 2px;
+}
+
+/* 내부 컨텐츠 컨테이너 */
+.slide-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1600px;
+  /* 너비를 넓게 써서 양쪽으로 벌림 */
+  margin: 0 auto;
+
+  /* ▼▼▼ [핵심 2] 좌우 배치를 확실하게 분리 ▼▼▼ */
+  display: flex;
+  justify-content: space-between;
+  /* 왼쪽(목업)과 오른쪽(텍스트)를 양 끝으로 */
+  align-items: flex-end;
+  /* 바닥 라인 맞춤 */
+  gap: 40px;
+}
+
+/* --- 왼쪽: 목업 이미지 영역 --- */
+.slide-left {
+  flex: 0 0 auto;
+  /* 이미지는 고정 크기 */
+  display: flex;
+  align-items: flex-end;
+  /* 이미지도 바닥에 붙임 */
+}
+
+.mockup-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  /* 목업 최대 크기 키움 */
+  /* 그림자 등으로 입체감 */
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
+  transform: perspective(1000px) rotateY(5deg) translateX(-20px);
+  /* 살짝 왼쪽에서 나오는 느낌 */
+  transition: transform 0.5s ease;
+}
+
+.mockup-wrapper:hover {
+  transform: perspective(1000px) rotateY(0deg) translateX(0);
+}
+
+.detail-mockup {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- 오른쪽: 텍스트 영역 --- */
+.slide-right {
+  flex: 1;
+  /* 남은 공간 모두 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* 텍스트도 아래쪽으로 배치 */
+  padding-top: 80px;
+  /* 상단 여백 조정 */
+  padding-bottom: 20px;
+  /* 바닥에서 살짝 띄움 */
+  padding-right: 0;
+  text-align: left;
+  max-width: 600px;
+  /* 최대 너비 확대: 420px → 520px → 600px */
+}
+
+/* 본문 스타일 */
+.detail-body {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  /* 항목 간 간격 조정 */
+  padding-bottom: 30px;
+  /* 하단 여백 추가 (기여도 부분이 잘리지 않도록) */
+  max-height: 70vh;
+  /* 최대 높이를 뷰포트의 70% 로 제한 */
+  overflow-y: auto;
+  /* 내용이 많을 때 스크롤 가능하게 */
+  padding-right: 12px;
+  /* 스크롤바 때문에 오른쪽 여백 추가 */
+}
+
+/* 스크롤바 커스텀 스타일 */
+.detail-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.detail-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.detail-body::-webkit-scrollbar-thumb {
+  background: rgba(165, 180, 252, 0.6);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.detail-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(165, 180, 252, 0.9);
+}
+
+.detail-item {
+  background: rgba(255, 255, 255, 0.08);
+  /* 반투명 배경 */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 22px;
+  /* 패딩 확대 */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.detail-item h3 {
+  font-size: 17px;
+  /* 16px → 17px */
+  color: #fbbf24;
+  /* 따뜻한 골드 색상 */
+  margin-bottom: 11px;
+  /* 10px → 11px */
+  margin-top: 0;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+}
+
+.detail-item p {
+  font-size: 15px;
+  /* 14px → 15px */
+  line-height: 1.65;
+  /* 1.6 → 1.65 */
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  margin: 0;
+}
+
+.team-info {
+  display: block;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(251, 191, 36, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.team-info strong {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+/* 리스트 스타일 */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+  /* 6px → 7px */
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+  /* 14px → 15px */
+  line-height: 1.55;
+  /* 1.5 → 1.55 */
+}
+
+.detail-list li:last-child {
+  margin-bottom: 0;
+}
+
+.detail-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fbbf24;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 하단 기여도/블로그 버튼 */
+.detail-row {
+  display: flex;
+  gap: 20px;
+  /* 30px → 20px */
+  margin-top: 30px;
+  margin-bottom: 0;
+  background: rgba(79, 70, 229, 0.1);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  padding: 18px 20px;
+  /* 16px 18px → 18px 20px */
+  border-radius: 12px;
+}
+
+.detail-half {
+  flex: 1;
+}
+
+.detail-half h3 {
+  font-size: 15px;
+  /* 14px → 15px */
+  color: #fbbf24;
+  margin-bottom: 9px;
+  /* 8px → 9px */
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 9px;
+  /* 8px → 9px */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 5px;
+  margin-top: 7px;
+  /* 6px → 7px */
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.blog-btn {
+  display: inline-block;
+  margin-top: 7px;
+  /* 6px → 7px */
+  padding: 9px 17px;
+  /* 8px 16px → 9px 17px */
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid #fbbf24;
+  color: #fbbf24;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  /* 12px → 13px */
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-btn:hover {
+  background: #fbbf24;
+  color: #111827;
+  transform: translateX(2px);
+}
+
+.github-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.github-logo-link:hover {
+  transform: scale(1.1);
+}
+
+
+.github-icon-img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  vertical-align: middle;
+}
+
+.github-logo-link:hover .github-icon-img {
+  opacity: 1;
+}
+
+/* 반응형: 화면 작아지면 위아래 배치 */
+@media (max-width: 1200px) {
+  .slide-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide-left,
+  .slide-right {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .mockup-wrapper {
+    transform: none;
+    margin-bottom: 40px;
+  }
+
+  .detail-slide {
+    align-items: center;
+    padding-top: 150px;
+  }
+
+  /* 모바일은 중앙 정렬 */
+}
+
+/* ============================
+   [NEW] Project Sub-Navigation (사이드바 수정)
+   ============================ */
+
+/* 프로젝트 버튼: 소메뉴가 이 버튼 기준으로 위치를 잡도록 설정 */
+.project-nav-btn {
+  position: relative;
+  overflow: visible !important;
+  /* 내용이 잘리지 않게 */
+}
+
+/* 소메뉴 박스 (평소에는 숨김) */
+.sub-nav {
+  position: absolute;
+  right: 60px;
+  /* 버튼과의 거리를 조금 더 벌림 (안전하게) */
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  /* ▼ [핵심 1] 메뉴가 사라질 때 0.3초 딜레이를 줘서 마우스 이동 시간을 벌어줌 */
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  transition-delay: 0.1s;
+  /* 살짝 늦게 꺼지게 설정 */
+
+  pointer-events: none;
+  z-index: 3000;
+}
+
+.sub-nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -30px;
+  /* 메뉴 오른쪽으로 30px만큼 뻗어나감 (아이콘 쪽으로) */
+  width: 40px;
+  /* 충분히 넓게 잡아서 빈틈 제거 */
+  height: 100%;
+  background: transparent;
+  /* 눈에는 안 보임 */
+}
+
+/* 마우스를 올렸을 때 소메뉴 등장 */
+.project-nav-btn:hover .sub-nav {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+/* 프로젝트 버튼에 마우스 올리면 기존 'Projects' 툴팁은 숨김 (겹침 방지) */
+.project-nav-btn:hover>.tooltip {
+  display: none;
+}
+
+/* 소메뉴 아이템 스타일 */
+.sub-item {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sub-item:hover {
+  background: #eff6ff;
+  /* 연한 파란색 배경 */
+  color: #4f46e5;
+  /* 진한 파란색 글씨 */
+  transform: translateX(-3px);
 }

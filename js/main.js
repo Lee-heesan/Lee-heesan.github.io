@@ -76,3 +76,32 @@ window.addEventListener("mousemove", e => {
   window.mouseTimer = setTimeout(() => isMoved = false, 1000);
 });
 animate();
+
+/* ====================================
+   Project Scroll Navigation
+   ==================================== */
+
+// 프로젝트 카드 클릭 시 해당 상세 섹션으로 이동
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".project-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      // 1. 카드의 data-id 가져오기 (1, 2, 3...)
+      const id = card.getAttribute("data-id");
+      
+      // 2. 이동할 목표 섹션 찾기 (id="p-detail-1")
+      const targetSection = document.getElementById(`p-detail-${id}`);
+
+      // 3. 부드럽게 스크롤 이동
+      if (targetSection) {
+        targetSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' // 화면 중앙에 오도록 정렬
+        });
+      }
+    });
+  });
+});
+
+// 기존 Liquid Blob Animation 코드는 유지해주세요.
