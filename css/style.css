@@ -38,24 +38,64 @@ section {
    ============================ */
 .side-nav {
   position: fixed;
-  top: 50%;
-  right: 40px;
-  transform: translateY(-50%);
+  bottom: 24px; /* 하단 여백 유지 */
+  right: 60px; /* 오른쪽에서 더 멀리 떨어뜨려 자연스러운 공간 확보 */
+  left: auto;
+  top: auto;
+  transform: none;
   z-index: 2000;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end; /* 메뉴 위, 토글 아래 배치 */
+  gap: 16px;
+  padding: 16px 12px; /* 약간 여유를 줘서 배치 안정감 향상 */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.nav-toggle-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  font-weight: 600;
+}
+
+.nav-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.nav-menu {
+  display: none;
+  flex-direction: column;
   gap: 20px;
+}
+
+.side-nav.expanded .nav-menu {
+  display: flex;
+}
+
+.side-nav.expanded {
   padding: 18px 10px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 .nav-btn {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -65,6 +105,8 @@ section {
   color: #4b5563;
   transition: all 0.3s ease;
   background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .nav-btn:hover {
@@ -431,6 +473,24 @@ svg#svg {
   background: linear-gradient(to top, #a5b4fc 10%, transparent 40%);
 }
 
+/* 주요 텍스트 보라색 형광펜 강조 */
+.highlight {
+  background: linear-gradient(to top, #c7d2fe 30%, transparent 70%);
+  font-weight: 600;
+  color: #111827;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* 프로젝트 성과/맡은역할 핵심 강조 (노란색) */
+.project-highlight {
+  background: linear-gradient(to top, #fed7aa 35%, transparent 75%);
+  font-weight: 600;
+  color: #111827;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
 
 /* --- [PAGE 2] 학력, 수상, 자격증 (Bio Info) --- */
 .bio-info-grid {
@@ -544,13 +604,59 @@ svg#svg {
 .tech-main-title {
   font-size: 36px;
   font-weight: 800;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: #111827;
   text-align: center;
 }
 
+/* Tech Tabs Navigation */
+.tech-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: rgba(79, 70, 229, 0.05);
+  border-radius: 12px;
+  min-height: 110px;
+}
+
+.tech-tab-btn {
+  padding: 10px 14px;
+  border: 2px solid #4f46e5;
+  background-color: #fff;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  flex: 1 1 auto;
+  min-width: fit-content;
+}
+
+.tech-tab-btn:hover {
+  background-color: rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.tech-tab-btn.active {
+  background-color: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
 .tech-category {
   margin-bottom: 40px;
+  display: none;
+}
+
+.tech-category.active {
+  display: block;
 }
 
 .category-title {
@@ -760,6 +866,7 @@ svg#svg {
   max-width: 1100px;
   /* 사진 때문에 폭을 조금 넓힘 */
   width: 100%;
+  overflow: hidden;
 }
 
 .experience-header {
@@ -767,50 +874,73 @@ svg#svg {
   text-align: center;
 }
 
-/* 리스트 컨테이너 */
+/* 경험 리스트: 가로 트랙 (한 카드씩 중앙 정렬) */
 .exp-list {
   display: flex;
-  flex-direction: column;
-  /* ▼▼▼ 항목 간 간격을 넓게 설정 (120px) ▼▼▼ */
-  gap: 120px;
+  flex-wrap: nowrap;
+  gap: 40px;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: transform;
+  padding: 20px 0 40px;
 }
 
-/* 개별 아이템 (좌우 배치) */
 .exp-item {
   display: flex;
-  align-items: flex-start;
-  /* 위쪽 라인 맞춤 */
-  gap: 60px;
-  /* 사진과 텍스트 사이 간격 */
-}
-
-/* 왼쪽: 사진 영역 */
-.exp-img-box {
-  flex: 0 0 400px;
-  /* 사진 너비 고정 (원하는 대로 조절 가능) */
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  gap: 40px;
+  flex: 0 0 clamp(320px, 70vw, 960px);
+  max-width: clamp(320px, 70vw, 960px);
+  padding: 30px;
   background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px rgba(15, 23, 42, 0.08);
+  opacity: 0.35;
+  transform: scale(0.92);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.exp-item.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+/* 사진 영역 */
+.exp-img-box {
+  flex: 0 0 45%;
+  height: 320px;
+  overflow: hidden;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+/* 사진 항상 꽉 차게 */
 .exp-img-box img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   transition: transform 0.3s;
 }
 
 .exp-img-box:hover img {
-  transform: scale(1.03);
-  /* 마우스 올리면 살짝 확대 */
+  transform: scale(1.05);
 }
 
-/* 오른쪽: 내용 영역 */
+/* 내용 영역 */
 .exp-content {
   flex: 1;
-  padding-top: 10px;
-  /* 사진과 시각적 높이 맞춤 */
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
 }
 
 .exp-date {
@@ -869,26 +999,28 @@ svg#svg {
 
 /* --- 모바일 반응형 (좁은 화면) --- */
 @media (max-width: 960px) {
+  .exp-list {
+    flex-direction: column;
+    gap: 30px;
+    transform: none !important;
+  }
   .exp-item {
     flex-direction: column;
-    /* 위아래로 배치 변경 */
     gap: 20px;
-  }
-
-  .exp-img-box {
-    flex: 0 0 auto;
+    padding: 20px;
+    flex: 1 1 auto;
     width: 100%;
-    /* 모바일에서는 사진 꽉 차게 */
-    max-width: 500px;
+    max-width: 100%;
+    opacity: 1;
+    transform: none;
   }
-
-  .exp-list {
-    gap: 80px;
-    /* 모바일에서는 간격 조금 줄임 */
+  .exp-img-box {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
   }
-
-  .exp-title {
-    font-size: 24px;
+  .exp-content {
+    padding: 0;
   }
 }
 
@@ -983,9 +1115,51 @@ svg#svg {
   line-height: 1;
 }
 
+.contribution-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contribution-row h3 {
+  font-size: 18px;
+  color: #fbbf24;
+  margin: 0;
+  font-weight: 700;
+  line-height: 20px; /* 바 높이와 동일하게 설정하여 수직 정렬 */
+  display: flex;
+  align-items: center; /* 폰트 렌더링 오차 보정 */
+}
+
+.contribution-row .progress-bar {
+  width: 400px;
+  height: 20px; /* 텍스트 라인 높이와 맞춤 */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* 내부 퍼센트 텍스트 수직 중앙 */
+}
+
+.contribution-row .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .header-divider {
-  width: 100px;
-  height: 4px;
+  width: 4px;
+  height: 60px;
   background: #4f46e5;
   /* 보라색 포인트 */
   border-radius: 2px;
@@ -1021,7 +1195,7 @@ svg#svg {
 .mockup-wrapper {
   position: relative;
   width: 100%;
-  max-width: 850px;
+  max-width: 580px; /* 850px -> 580px: 이미지 영역 축소로 텍스트 영역 확장 */
   /* 목업 최대 크기 키움 */
   /* 그림자 등으로 입체감 */
   filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
@@ -1048,11 +1222,11 @@ svg#svg {
   flex-direction: column;
   justify-content: flex-start;
   /* 위쪽부터 시작 */
-  padding-top: 0;
+  padding-top: 48px; /* 헤더(프로젝트명/깃허브/블로그)와 겹치지 않도록 여유 추가 */
   padding-bottom: 0;
   padding-right: 0;
   text-align: left;
-  max-width: 600px;
+  max-width: 700px; /* 780px에서 축소하여 과도한 가로 너비 감소 */
   /* 최대 너비 확대: 420px → 520px → 600px */
 }
 
@@ -1062,7 +1236,7 @@ svg#svg {
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px; /* 블록 사이 간격 증가로 가독성 향상 */
   /* 항목 간 간격 축소 */
   padding: 0;
   overflow: visible !important;
@@ -1072,13 +1246,11 @@ svg#svg {
 
 
 .detail-item {
-  background: rgba(255, 255, 255, 0.08);
-  /* 반투명 배경 */
+  background: rgba(255, 255, 255, 0.10); /* 약간 더 밝게 */
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 12px 16px;
-  /* 패딩 추가 추가 */
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 16px 20px; /* 내부 여백 확대 */
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
@@ -1088,7 +1260,7 @@ svg#svg {
 }
 
 .detail-item h3 {
-  font-size: 15px;
+  font-size: 16px; /* 제목 약간 확대 */
   /* 크기 축소 */
   color: #fbbf24;
   /* 따뜻한 골드 색상 */
@@ -1103,13 +1275,12 @@ svg#svg {
 }
 
 .detail-item p {
-  font-size: 13.5px;
-  /* 폰트 크기 조정 */
-  line-height: 1.7;
-  /* 가독성 향상 */
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 400;
+  font-size: 15px; /* 14.5px -> 15px: 가독성 향상 */
+  line-height: 1.85; /* 1.75 -> 1.85: 행간 확대 */
+  color: rgba(255, 255, 255, 0.96); /* 0.93 -> 0.96: 대비 강화 */
+  font-weight: 500;
   margin: 0;
+  word-break: keep-all;
 }
 
 .team-info {
@@ -1127,6 +1298,63 @@ svg#svg {
   font-weight: 700;
 }
 
+/* 프로젝트 메타 정보 (기술 스택 / 참여인원 / 기간) */
+.project-meta {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.project-meta .meta-item {
+  background: rgba(255,255,255,0.04);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
+
+/* Logos row for project stacks */
+.meta-logos {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.logos-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.logos-title {
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 13px;
+}
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logos img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+.icon-pill {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 13px;
+  color: #062a00;
+  background: linear-gradient(90deg, #fde68a 0%, #f59e0b 100%);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
 /* 리스트 스타일 */
 .detail-list {
   list-style: none;
@@ -1136,14 +1364,12 @@ svg#svg {
 
 .detail-list li {
   position: relative;
-  padding-left: 16px;
-  margin-bottom: 5px;
-  /* 간격 축소 */
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 13.5px;
-  /* 크기 조정 */
-  line-height: 1.65;
-  /* 가독성 유지 */
+  padding-left: 18px;
+  margin-bottom: 10px; /* 8px -> 10px: 항목 간격 확대 */
+  color: rgba(255, 255, 255, 0.96); /* 0.92 -> 0.96: 대비 강화 */
+  font-size: 15px; /* 14.5px -> 15px: 본문과 동일한 크기 */
+  line-height: 1.8; /* 1.7 -> 1.8: 행간 증가 */
+  font-weight: 500;
 }
 
 .detail-list li:last-child {
@@ -1229,6 +1455,11 @@ svg#svg {
   font-weight: 600;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.detail-title-top .blog-btn {
+  margin-top: 0;
+  vertical-align: middle;
 }
 
 .blog-btn:hover {
@@ -1370,6 +1601,18 @@ svg#svg {
   text-align: left;
   transition: all 0.2s;
   white-space: nowrap;
+}
+
+/* 프로젝트 강조 텍스트 스타일 — Warm Yellow Pill (적용됨) */
+.highlight-text {
+  font-weight: 700;
+  color: #062a00; /* 어두운 텍스트 for contrast */
+  background: linear-gradient(90deg, #fde68a 0%, #f59e0b 100%);
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(245,158,11,0.18);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .sub-item:hover {
