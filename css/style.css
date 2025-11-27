@@ -1046,12 +1046,10 @@ svg#svg {
   /* 남은 공간 모두 차지 */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  /* 텍스트도 아래쪽으로 배치 */
-  padding-top: 80px;
-  /* 상단 여백 조정 */
-  padding-bottom: 20px;
-  /* 바닥에서 살짝 띄움 */
+  justify-content: flex-start;
+  /* 위쪽부터 시작 */
+  padding-top: 0;
+  padding-bottom: 0;
   padding-right: 0;
   text-align: left;
   max-width: 600px;
@@ -1064,46 +1062,23 @@ svg#svg {
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-  /* 항목 간 간격 조정 */
-  padding-bottom: 30px;
-  /* 하단 여백 추가 (기여도 부분이 잘리지 않도록) */
-  max-height: 70vh;
-  /* 최대 높이를 뷰포트의 70% 로 제한 */
-  overflow-y: auto;
-  /* 내용이 많을 때 스크롤 가능하게 */
-  padding-right: 12px;
-  /* 스크롤바 때문에 오른쪽 여백 추가 */
+  gap: 12px;
+  /* 항목 간 간격 축소 */
+  padding: 0;
+  overflow: visible !important;
+  max-height: none !important;
 }
 
-/* 스크롤바 커스텀 스타일 */
-.detail-body::-webkit-scrollbar {
-  width: 6px;
-}
 
-.detail-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-}
-
-.detail-body::-webkit-scrollbar-thumb {
-  background: rgba(165, 180, 252, 0.6);
-  border-radius: 3px;
-  transition: background 0.3s ease;
-}
-
-.detail-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(165, 180, 252, 0.9);
-}
 
 .detail-item {
   background: rgba(255, 255, 255, 0.08);
   /* 반투명 배경 */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 20px 22px;
-  /* 패딩 확대 */
-  border-radius: 12px;
+  padding: 12px 16px;
+  /* 패딩 추가 추가 */
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -1113,25 +1088,25 @@ svg#svg {
 }
 
 .detail-item h3 {
-  font-size: 17px;
-  /* 16px → 17px */
+  font-size: 15px;
+  /* 크기 축소 */
   color: #fbbf24;
   /* 따뜻한 골드 색상 */
-  margin-bottom: 11px;
-  /* 10px → 11px */
+  margin-bottom: 8px;
+  /* 간격 축소 */
   margin-top: 0;
   font-weight: 800;
   display: flex;
   align-items: center;
-  gap: 8px;
-  letter-spacing: 0.5px;
+  gap: 6px;
+  letter-spacing: 0.3px;
 }
 
 .detail-item p {
-  font-size: 15px;
-  /* 14px → 15px */
-  line-height: 1.65;
-  /* 1.6 → 1.65 */
+  font-size: 13.5px;
+  /* 폰트 크기 조정 */
+  line-height: 1.7;
+  /* 가독성 향상 */
   color: rgba(255, 255, 255, 0.95);
   font-weight: 400;
   margin: 0;
@@ -1161,14 +1136,14 @@ svg#svg {
 
 .detail-list li {
   position: relative;
-  padding-left: 18px;
-  margin-bottom: 7px;
-  /* 6px → 7px */
+  padding-left: 16px;
+  margin-bottom: 5px;
+  /* 간격 축소 */
   color: rgba(255, 255, 255, 0.95);
-  font-size: 15px;
-  /* 14px → 15px */
-  line-height: 1.55;
-  /* 1.5 → 1.55 */
+  font-size: 13.5px;
+  /* 크기 조정 */
+  line-height: 1.65;
+  /* 가독성 유지 */
 }
 
 .detail-list li:last-child {
@@ -1187,15 +1162,15 @@ svg#svg {
 /* 하단 기여도/블로그 버튼 */
 .detail-row {
   display: flex;
-  gap: 20px;
-  /* 30px → 20px */
-  margin-top: 30px;
+  gap: 16px;
+  /* 간격 축소 */
+  margin-top: 16px;
   margin-bottom: 0;
   background: rgba(79, 70, 229, 0.1);
   border: 1px solid rgba(79, 70, 229, 0.2);
-  padding: 18px 20px;
-  /* 16px 18px → 18px 20px */
-  border-radius: 12px;
+  padding: 14px 16px;
+  /* 패딩 축소 */
+  border-radius: 10px;
 }
 
 .detail-half {
