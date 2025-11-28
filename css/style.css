@@ -85,8 +85,10 @@ section {
   gap: 20px;
 }
 
+
 .side-nav.expanded .nav-menu {
   display: flex;
+  pointer-events: auto; /* 개별 아이템은 hover 활성화 */
 }
 
 .side-nav.expanded {
@@ -172,6 +174,8 @@ section {
   line-height: 1.1;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+  background-clip: text; /* add standard property for compatibility */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 16px;
@@ -225,6 +229,9 @@ svg#svg {
     opacity: 0;
   }
 }
+
+/* Hide bottom side navigation (temporary) */
+.side-nav { display: none !important; }
 
 
 /* ============================
@@ -701,6 +708,76 @@ svg#svg {
   width: 26px;
   height: 26px;
   object-fit: contain;
+}
+
+/* Tooltip setup - absolute positioning with proper stacking */
+.tech-icons .tech-icon-small,
+.tech-icons .tech-text-pill {
+  position: relative;
+  pointer-events: auto;
+}
+
+.tech-icons [data-tech]::before {
+  content: attr(data-tech);
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.95);
+  color: #fff;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.tech-icons [data-tech]:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tooltip wrapper for icons */
+.tech-tip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-tip-wrap::before {
+  content: attr(data-tech);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.92);
+  color: #fff;
+  font-size: 11px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.tech-tip-wrap:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 특정 아이콘 확대 */
+.tech-icon-large {
+  width: 48px;
+  height: 48px;
 }
 
 .tech-name {
@@ -1195,23 +1272,32 @@ svg#svg {
 .mockup-wrapper {
   position: relative;
   width: 100%;
-  max-width: 580px; /* 850px -> 580px: 이미지 영역 축소로 텍스트 영역 확장 */
-  /* 목업 최대 크기 키움 */
-  /* 그림자 등으로 입체감 */
+  max-width: 580px;
   filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
-  transform: perspective(1000px) rotateY(5deg) translateX(-20px);
-  /* 살짝 왼쪽에서 나오는 느낌 */
-  transition: transform 0.5s ease;
+  margin-bottom: 30px;
 }
-
-.mockup-wrapper:hover {
-  transform: perspective(1000px) rotateY(0deg) translateX(0);
-}
-
 .detail-mockup {
   width: 100%;
   height: auto;
   display: block;
+  will-change: transform;
+}
+
+/* 이미지만 좌우 흔들림: wrapper 전체나 텍스트/스택은 고정 */
+.mockup-wrapper:hover .detail-mockup {
+  animation: mockup-shake 0.9s cubic-bezier(.36,.07,.19,.97) infinite;
+}
+
+@keyframes mockup-shake {
+  0% { transform: translateX(0) rotateY(0deg); }
+  10% { transform: translateX(-10px) rotateY(-2deg); }
+  25% { transform: translateX(-14px) rotateY(-3deg); }
+  40% { transform: translateX(-8px) rotateY(-1deg); }
+  50% { transform: translateX(0) rotateY(0deg); }
+  60% { transform: translateX(8px) rotateY(1deg); }
+  75% { transform: translateX(14px) rotateY(3deg); }
+  90% { transform: translateX(10px) rotateY(2deg); }
+  100% { transform: translateX(0) rotateY(0deg); }
 }
 
 /* --- 오른쪽: 텍스트 영역 --- */
@@ -1314,45 +1400,6 @@ svg#svg {
   border: 1px solid rgba(255,255,255,0.04);
   color: rgba(255,255,255,0.9);
   font-weight: 600;
-}
-
-/* Logos row for project stacks */
-.meta-logos {
-  margin-top: 12px;
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.logos-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.logos-title {
-  color: #fbbf24;
-  font-weight: 700;
-  font-size: 13px;
-}
-.logos {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.logos img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
-}
-.icon-pill {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 13px;
-  color: #062a00;
-  background: linear-gradient(90deg, #fde68a 0%, #f59e0b 100%);
-  padding: 4px 8px;
-  border-radius: 6px;
 }
 
 /* 리스트 스타일 */
@@ -1606,13 +1653,16 @@ svg#svg {
 /* 프로젝트 강조 텍스트 스타일 — Warm Yellow Pill (적용됨) */
 .highlight-text {
   font-weight: 700;
-  color: #062a00; /* 어두운 텍스트 for contrast */
-  background: linear-gradient(90deg, #fde68a 0%, #f59e0b 100%);
-  padding: 4px 8px;
-  border-radius: 8px;
-  display: inline-block;
-  box-shadow: 0 6px 18px rgba(245,158,11,0.18);
-  border: 1px solid rgba(0,0,0,0.06);
+  color: #fef3c7; /* 밝은 텍스트 톤 */
+  background: none; /* 필 스타일 제거 */
+  padding: 0; /* 패딩 제거로 문장 흐름 유지 */
+  border: none;
+  display: inline;
+  text-decoration: underline;
+  text-decoration-color: rgba(251, 191, 36, 0.95); /* warm yellow underline */
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-shadow: 0 0 8px rgba(251,191,36,0.08); /* 미세한 글로우로 포인트 유지 */
 }
 
 .sub-item:hover {
@@ -1621,4 +1671,68 @@ svg#svg {
   color: #4f46e5;
   /* 진한 파란색 글씨 */
   transform: translateX(-3px);
+}
+
+/* Hide FRIENDS FOOD project */
+.project-card[data-id="5"],
+#p-detail-5 {
+  display: none;
+}
+
+.detail-tech-stack {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: auto;
+  position: relative;
+  z-index: 20;
+}
+
+.tech-category-small {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-category-small h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fbbf24;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.tech-icon-small {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.tech-icon-small:hover {
+  opacity: 1;
+}
+
+.tech-text-pill {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #fef3c7;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
 }
