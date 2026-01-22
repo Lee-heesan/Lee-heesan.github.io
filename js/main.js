@@ -104,35 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Tech Stack Tab Switching
-document.addEventListener("DOMContentLoaded", () => {
-  const tabBtns = document.querySelectorAll(".tech-tab-btn");
-  const categories = document.querySelectorAll(".tech-category");
-
-  // 첫 번째 카테고리를 기본으로 활성화
-  if (categories.length > 0) {
-    categories[0].classList.add("active");
-  }
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const selectedTab = btn.getAttribute("data-tab");
-
-      // 모든 탭과 카테고리 비활성화
-      tabBtns.forEach(b => b.classList.remove("active"));
-      categories.forEach(c => c.classList.remove("active"));
-
-      // 선택된 탭과 카테고리 활성화
-      btn.classList.add("active");
-      const selectedCategory = document.querySelector(
-        `.tech-category[data-category="${selectedTab}"]`
-      );
-      if (selectedCategory) {
-        selectedCategory.classList.add("active");
-      }
-    });
-  });
-});
+// Tech Stack Tab Switching (Disabled - all visible now)
+// Tabs removed, all tech stack visible by default
 
 // Experience Section horizontal scroll synced with vertical wheel
 document.addEventListener("DOMContentLoaded", () => {

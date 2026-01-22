@@ -611,50 +611,150 @@ svg#svg {
 .tech-main-title {
   font-size: 36px;
   font-weight: 800;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   color: #111827;
   text-align: center;
 }
 
-/* Tech Tabs Navigation */
-.tech-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 50px;
-  padding: 20px;
-  background: rgba(79, 70, 229, 0.05);
-  border-radius: 12px;
-  min-height: 110px;
+/* Tech Highlight Section - 상단 주요 3개 기술 */
+.tech-highlight-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(79, 70, 229, 0.1);
 }
 
-.tech-tab-btn {
-  padding: 10px 14px;
-  border: 2px solid #4f46e5;
-  background-color: #fff;
+.tech-highlight-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-highlight-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.tech-highlight-icon {
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-highlight-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tech-highlight-content {
+  flex: 1;
+}
+
+.tech-highlight-content h5 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.usage-rate {
+  font-size: 14px;
+  font-weight: 700;
   color: #4f46e5;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.5px;
-  flex: 1 1 auto;
+  margin: 4px 0 12px 0;
+  display: block;
+}
+
+.usage-reason {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tech All Grid - 전체 기술 목록 */
+.tech-all-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tech-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.tech-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: #111827;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
   min-width: fit-content;
 }
 
-.tech-tab-btn:hover {
-  background-color: rgba(79, 70, 229, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+.tech-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex: 1;
 }
 
-.tech-tab-btn.active {
-  background-color: #4f46e5;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+.tech-card-compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.tech-card-compact:hover {
+  background: #ededed;
+  border-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+.tech-card-compact img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.tech-card-compact span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+
+/* Tech Tabs Navigation */
+.tech-tabs {
+  display: none;
 }
 
 .tech-category {
@@ -780,10 +880,22 @@ svg#svg {
   height: 48px;
 }
 
+.tech-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .tech-name {
   color: black;
   font-size: 15px;
   font-weight: 600;
+}
+
+.tech-desc {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .tech-rating {
