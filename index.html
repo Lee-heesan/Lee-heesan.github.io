@@ -54,11 +54,8 @@
           <div class="sub-item"
             onclick="document.getElementById('p-detail-4').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
             APT.ZIP</div>
-          <div class="sub-item" style="display: none;"
-            onclick="document.getElementById('p-detail-5').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
-            FRIENDS FOOD</div>
           <div class="sub-item"
-            onclick="document.getElementById('p-detail-6').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            onclick="document.getElementById('p-detail-5').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
             천천히 함께</div>
         </div>
       </div>
@@ -1249,75 +1246,7 @@
 
     </section>
 
-    <section id="p-detail-5" class="detail-slide" style="background-image: url('assets/friendsfoodbg.png');">
-      <div class="bg-text">FRIENDS FOOD</div>
-
-      <div class="detail-header-top">
-        <span class="detail-tag-top">E-Commerce</span>
-        <span class="detail-tag-top">식단 구독 이커머스 서비스</span>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="header-divider"></div>
-          <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">FRIENDS FOOD
-            <a href="https://github.com/Lee-heesan/FriendsHub" target="_blank" class="github-logo-link">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015  2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
-                alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
-            </a>
-          </h2>
-        </div>
-        <div class="contribution-row">
-          <h3>기여도</h3>
-          <div class="progress-bar">
-            <div class="progress-fill" style="width: 80%;">80%</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slide-inner">
-        <div class="slide-left">
-          <div class="mockup-wrapper">
-            <img src="assets/friendsfooditem.png" alt="Friends Food" class="detail-mockup">
-          </div>
-        </div>
-        <div class="slide-right">
-          <div class="detail-body">
-            <div class="detail-item">
-              <h3>📄 프로젝트 설명</h3>
-              <p>맞춤형 건강식단을 구독하는 이커머스 플랫폼입니다. 사용자의 선호도와 영양정보 기반으로 식단을 추천합니다.<br>
-              </p>
-              <div class="project-meta">
-                <div class="meta-item"><strong>인원:</strong> 2명 (풀스택 2)</div>
-                <div class="meta-item"><strong>포지션:</strong> 풀스택</div>
-                <div class="meta-item"><strong>기간:</strong> 2023.03 — 2023.09</div>
-              </div>
-            </div>
-            <div class="detail-item">
-              <h3>👤 담당 역할</h3>
-              <ul class="detail-list">
-                <li><span class="highlight-text">상품 · 주문 · 장바구니</span> 핵심 비즈니스 로직 개발</li>
-                <li>주문 생성·취소 <span class="highlight-text">재고 차감/복구 트랜잭션</span> 처리로 데이터 무결성 확보</li>
-                <li><span class="highlight-text">회원 인증·인가</span> 및 관리자/사용자 권한 체계 구축</li>
-                <li>상품 이미지 업로드 및 관리 기능 구현</li>
-              </ul>
-            </div>
-            <div class="detail-item">
-              <h3>📈 성과</h3>
-              <ul class="detail-list">
-                <li>학술엑스포 사용자 만족도 <span class="highlight-text">4.8/5.0</span> 달성</li>
-                <li><strong><span class="highlight-text">확장성 있는 데이터 모델링:</span></strong> JPA 연관관계 매핑을 통해 상품–주문–회원 구조를
-                  객체지향적으로 구현하여 유지보수성 향상</li>
-                <li><strong><span class="highlight-text">동적 검색 최적화:</span></strong> QueryDSL 기반 다중 조건 검색(상품명/가격대/상태)으로
-                  타입 세이프한 검색 기능 구현</li>
-                <li><strong><span class="highlight-text">트랜잭션 기반 주문 프로세스:</span></strong> 재고 차감, 주문 생성·취소 로직을 원자적으로
-                  처리해 데이터 무결성 보장</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="p-detail-6" class="detail-slide"
+    <section id="p-detail-5" class="detail-slide"
       style="background: linear-gradient(135deg, #fdf4ff 0%, #faf5ff 50%, #f9fafb 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 40px 60px; align-items: stretch; min-height: 100vh; position: relative;">
       <!-- 상단 헤더 -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">

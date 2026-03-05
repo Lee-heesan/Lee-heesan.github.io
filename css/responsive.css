@@ -23,6 +23,21 @@
         text-align: left;
     }
 
+    .about-summary-bar {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .asb-group {
+        padding: 0;
+    }
+
+    .asb-divider {
+        display: none;
+    }
+
     .bio-info-grid {
         grid-template-columns: 1fr;
         min-height: auto;

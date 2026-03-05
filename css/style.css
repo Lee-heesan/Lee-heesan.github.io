@@ -179,7 +179,6 @@ section {
   line-height: 1.1;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
-  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
   background-clip: text;
   /* add standard property for compatibility */
   -webkit-background-clip: text;
@@ -294,20 +293,28 @@ svg#svg {
   margin: 0 auto;
 }
 
+.about-page-wrap {
+  min-height: 100svh;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
 /* --- [PAGE 1] 헤더 + 프로필 + 자기소개 --- */
 /* 헤더와 내용을 묶어서 첫 화면처럼 보이게 처리 */
 .about-header {
-  padding-top: 100px;
-  /* 상단 여백 */
-  margin-bottom: 40px;
+  padding-top: 0;
+  margin-bottom: clamp(12px, 2vh, 22px);
   text-align: center;
 }
 
 .about-top {
-  /* 화면 높이에서 헤더 높이만큼 뺀 공간을 차지 */
-  min-height: calc(100vh - 250px);
+  min-height: 0;
   display: flex;
-  gap: 60px;
+  gap: clamp(24px, 3vw, 44px);
 
   /* ▼▼▼ 여기가 핵심: 내용을 수직 중앙에 정렬 ▼▼▼ */
   align-items: center;
@@ -319,7 +326,7 @@ svg#svg {
 }
 
 .section-title {
-  font-size: 48px;
+  font-size: clamp(40px, 4vw, 48px);
   font-weight: 800;
   color: #111827;
   letter-spacing: -0.03em;
@@ -327,14 +334,14 @@ svg#svg {
 }
 
 .section-sub {
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
   color: #6b7280;
   font-weight: 400;
 }
 
 /* 프로필 사진 (3:3.5 비율 유지) */
 .profile-area {
-  flex: 0 0 320px;
+  flex: 0 0 clamp(220px, 17vw, 300px);
 }
 
 .profile-img-box {
@@ -360,25 +367,26 @@ svg#svg {
 /* 소개 텍스트 */
 .intro-area {
   flex: 1;
+  min-width: 0;
 }
 
 .about-text-box {
   background: #f9fafb;
-  padding: 40px;
-  border-radius: 24px;
+  padding: clamp(18px, 2.4vh, 30px);
+  border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .greeting {
-  font-size: 24px;
+  font-size: clamp(16px, 1.45vw, 24px);
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: #4f46e5;
 }
 
 .desc {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 1.62;
   color: #374151;
   word-break: keep-all;
 }
@@ -387,6 +395,107 @@ svg#svg {
   color: #111827;
   font-weight: 600;
   background: linear-gradient(to top, #a5b4fc 10%, transparent 40%);
+}
+
+/* About Summary Bar (소개글 아래 경력/자격증/수상 요약) */
+.about-summary-bar {
+  display: flex;
+  gap: 0;
+  background: #f3f4f6;
+  border: 1px solid #dde1e7;
+  border-radius: 14px;
+  padding: 10px 16px;
+  margin: clamp(100px, 4.2vh, 46px) 0 0 0;
+  align-items: stretch;
+}
+
+.asb-group {
+  flex: 1;
+  min-width: 0;
+  padding: 0 18px;
+  overflow: hidden;
+}
+
+.asb-group:first-child {
+  padding-left: 0;
+}
+
+.asb-group:last-child {
+  padding-right: 0;
+}
+
+.asb-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  background: #e5e7eb;
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.asb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.asb-list li {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 10px;
+}
+
+.asb-date {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.asb-item {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.asb-item em {
+  font-style: normal;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.asb-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #92400e;
+  background: #fef3c7;
+  border-radius: 8px;
+  padding: 1px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.asb-group:last-child .asb-list li {
+  grid-template-columns: 95px minmax(0, 1fr);
+}
+
+.asb-divider {
+  display: block;
+  width: 1px;
+  background: #d8dce3;
+  align-self: stretch;
+  flex-shrink: 0;
 }
 
 /* 주요 텍스트 보라색 형광펜 강조 */
@@ -509,16 +618,15 @@ svg#svg {
   /* ▼▼▼ 내용을 화면 정중앙에 배치 ▼▼▼ */
   justify-content: center;
 
-  margin-top: 0;
+  margin-top: 150px;
   padding: 40px 0;
-  border-top: none;
-  /* 구분선 제거 (화면 단위라 불필요) */
+  border-top: 1px dashed #e5e7eb;
   scroll-snap-align: none;
   scroll-snap-stop: normal;
 }
 
 .tech-main-title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 800;
   margin-bottom: 60px;
   color: #111827;
@@ -827,6 +935,12 @@ svg#svg {
 
 /* 모바일 반응형 (세로 배치) */
 @media (max-width: 960px) {
+  .about-page-wrap {
+    height: auto;
+    min-height: auto;
+    padding: 0;
+  }
+
   .about-top {
     flex-direction: column;
     text-align: center;
@@ -844,6 +958,30 @@ svg#svg {
     text-align: left;
   }
 
+  .about-summary-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .asb-group {
+    padding: 0;
+  }
+
+  .asb-list li,
+  .asb-group:last-child .asb-list li {
+    grid-template-columns: 105px minmax(0, 1fr);
+  }
+
+  .asb-item {
+    white-space: normal;
+  }
+
+  .asb-divider {
+    display: none;
+  }
+
   .bio-info-grid {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -854,21 +992,6 @@ svg#svg {
     min-height: auto;
     padding: 60px 0;
   }
-}
-
-/* 하단 Tech Stack */
-.tech-stack-container {
-  margin-top: 150px;
-  padding-top: 40px;
-  border-top: 1px dashed #e5e7eb;
-}
-
-.tech-main-title {
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 60px;
-  color: #111827;
-  text-align: center;
 }
 
 .tech-category {

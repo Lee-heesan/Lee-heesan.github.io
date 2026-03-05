@@ -81,6 +81,7 @@
 
 .intro-area {
     flex: 1;
+    min-width: 0;
 }
 
 .about-text-box {
@@ -114,34 +115,37 @@
 .about-summary-bar {
     display: flex;
     gap: 0;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background: #f3f4f6;
+    border: 1px solid #dde1e7;
     border-radius: 14px;
-    padding: 18px 28px;
-    margin: 18px 0 0 0;
-    flex-wrap: nowrap;
-    align-items: flex-start;
+    padding: 14px 20px;
+    margin: 50px 0 0 0;
+    align-items: stretch;
 }
 
 .asb-group {
     flex: 1;
-    min-width: 200px;
-    padding: 0 24px;
+    min-width: 0;
+    padding: 0 18px;
 }
 
 .asb-group:first-child {
     padding-left: 0;
 }
 
+.asb-group:last-child {
+    padding-right: 0;
+}
+
 .asb-label {
     display: inline-block;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: #6b7280;
     background: #e5e7eb;
-    border-radius: 20px;
+    border-radius: 999px;
     padding: 3px 12px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     letter-spacing: 0.04em;
 }
 
@@ -151,51 +155,52 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
 }
 
 .asb-list li {
     display: flex;
     align-items: baseline;
-    gap: 10px;
+    gap: 9px;
 }
 
 .asb-date {
-    font-size: 12px;
-    color: #9ca3af;
-    font-weight: 500;
+    font-size: 13px;
+    color: #8f96a3;
+    font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .asb-item {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     color: #1f2937;
     white-space: nowrap;
 }
 
 .asb-item em {
     font-style: normal;
-    font-size: 12px;
+    font-size: 13px;
     color: #6b7280;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .asb-badge {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     color: #92400e;
     background: #fef3c7;
-    border-radius: 6px;
-    padding: 2px 8px;
+    border-radius: 8px;
+    padding: 2px 10px;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
 .asb-divider {
+    display: block;
     width: 1px;
-    background: #e5e7eb;
+    background: #d8dce3;
     align-self: stretch;
     flex-shrink: 0;
 }

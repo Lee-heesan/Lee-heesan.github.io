@@ -420,8 +420,3 @@
     text-shadow: 0 0 8px rgba(251, 191, 36, 0.08);
 }
 
-/* Hide FRIENDS FOOD project */
-.project-card[data-id="5"],
-#p-detail-5 {
-    display: none;
-}
