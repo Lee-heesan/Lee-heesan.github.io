@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio - Yihihihi-san</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .detail-body {
+      overflow: visible !important;
+      max-height: none !important;
+      padding-right: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="side-nav">
+    <div class="nav-menu">
+      <div class="nav-btn" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'});">
+        🏠
+        <span class="tooltip">Home</span>
+      </div>
+      <div class="nav-btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'});">
+        🙋‍♂️
+        <span class="tooltip">About</span>
+      </div>
+      <div class="nav-btn" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'});">
+        🚀
+        <span class="tooltip">Experience</span>
+      </div>
+
+      <div class="nav-btn project-nav-btn"
+        onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});">
+        💻
+        <span class="tooltip">Projects</span>
+
+        <div class="sub-nav">
+          <div class="sub-item"
+            onclick="document.getElementById('p-detail-1').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            IMPRESSER</div>
+          <div class="sub-item"
+            onclick="document.getElementById('p-detail-2').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            Ma-Joong</div>
+          <div class="sub-item"
+            onclick="document.getElementById('p-detail-3').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            Re:View</div>
+          <div class="sub-item"
+            onclick="document.getElementById('p-detail-4').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            APT.ZIP</div>
+          <div class="sub-item" style="display: none;"
+            onclick="document.getElementById('p-detail-5').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            FRIENDS FOOD</div>
+          <div class="sub-item"
+            onclick="document.getElementById('p-detail-6').scrollIntoView({behavior:'smooth', block:'center'}); event.stopPropagation();">
+            천천히 함께</div>
+        </div>
+      </div>
+    </div>
+    <button class="nav-toggle-btn" onclick="document.querySelector('.side-nav').classList.toggle('expanded')">
+      📑
+    </button>
+  </div>
+
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="bubble-text">
+        <div class="hello">안녕하세요,</div>
+        <div class="name">이희산</div>
+        <div class="role">백엔드 개발자입니다.</div>
+      </div>
+      </div>
+      <div class="scroll-hint" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        <span></span>SCROLL
+      </div>
+      <svg id="svg" viewBox="0 0 1000 1000">
+        <defs>
+          <radialGradient id="liquidGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stop-color="rgba(167, 139, 250, 0.4)" />
+            <stop offset="100%" stop-color="rgba(79, 70, 229, 0.1)" />
+          </radialGradient>
+        </defs>
+        <path id="blob" fill="url(#liquidGrad)"></path>
+      </svg>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-inner">
+        <div class="about-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-sub">보이지 않는 곳에서 견고한 가치를 만드는 개발자</p>
+        </div>
+
+        <div class="about-top">
+          <div class="profile-area">
+            <div class="profile-img-box">
+              <img src="assets/profile.webp" alt="이희산 프로필" class="profile-img">
+            </div>
+          </div>
+          <div class="intro-area">
+            <div class="about-text-box">
+              <p class="greeting">"안녕하세요, 이희산입니다."</p>
+              <p class="desc">
+                보이지 않는 곳에서 <span class="highlight">견고한 가치를</span> 만드는 개발자입니다.<br>
+                사용자가 <span class="highlight">믿고 쓸 수 있는 서비스</span>를 위해<br>
+                <span class="highlight">안정성, 성능, 확장성</span>을 중심으로 설계합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-info-grid">
+          <div class="bio-card">
+            <div class="bio-icon">💼</div>
+            <h3 class="bio-title">경력</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">동서대학교 졸업</span>
+                <span class="bio-sub">2018.03 ~ 2024.02</span>
+              </li>
+              <li>
+                <span class="bio-main">맵스코 인턴</span>
+                <span class="bio-sub">2023.08 ~ 2024.03 (8개월)</span>
+                <span class="bio-desc">개발팀 인턴</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bio-card">
+            <div class="bio-icon">🏆</div>
+            <h3 class="bio-title">Awards</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">SSAFY 공공데이터를 활용한 프로젝트</span>
+                <span class="bio-sub">최우수상 (1등)</span>
+              </li>
+              <li>
+                <span class="bio-main">SSAFY 웹 기술 프로젝트</span>
+                <span class="bio-sub">우수상 (1등)</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bio-card">
+            <div class="bio-icon">📜</div>
+            <h3 class="bio-title">Certificates</h3>
+            <ul class="bio-list">
+              <li>
+                <span class="bio-main">정보처리기사</span>
+                <span class="bio-sub">한국산업인력공단</span>
+              </li>
+              <li>
+                <span class="bio-main">SQLD</span>
+                <span class="bio-sub">한국데이터산업진흥원</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tech-stack-container" id="tech-stack">
+          <h3 class="tech-main-title">Tech Stack</h3>
+
+          <div class="tech-category active">
+            <h4 class="category-title">주요 기술 스택</h4>
+
+            <!-- Core Tech 하이라이트 -->
+            <div class="tech-highlight-section">
+              <div class="tech-highlight-item">
+                <div class="tech-highlight-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                </div>
+                <div class="tech-highlight-content">
+                  <h5>Java</h5>
+                  <p class="usage-rate">80% 활용률</p>
+                  <p class="usage-reason">백엔드 개발의 핵심 언어로, 모든 서버 애플리케이션과 API 개발에 사용</p>
+                </div>
+              </div>
+              <div class="tech-highlight-item">
+                <div class="tech-highlight-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                    alt="Spring Boot">
+                </div>
+                <div class="tech-highlight-content">
+                  <h5>Spring Boot</h5>
+                  <p class="usage-rate">80% 활용률</p>
+                  <p class="usage-reason">REST API 기반 백엔드 서비스 개발의 핵심 프레임워크</p>
+                </div>
+              </div>
+              <div class="tech-highlight-item">
+                <div class="tech-highlight-icon">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                </div>
+                <div class="tech-highlight-content">
+                  <h5>MySQL</h5>
+                  <p class="usage-rate">80% 활용률</p>
+                  <p class="usage-reason">모든 프로젝트의 주 데이터베이스로 데이터 관리 및 쿼리 최적화 담당</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 전체 기술 그리드 -->
+            <div class="tech-all-grid">
+              <div class="tech-section">
+                <h5 class="tech-section-title">Languages</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                      alt="C++">
+                    <span>C++</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                      alt="Python">
+                    <span>Python</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-section">
+                <h5 class="tech-section-title">Frameworks & Libraries</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="assets/spring security.png" alt="Spring Security" class="filter-green">
+                    <span>Spring Security</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg"
+                      alt="JPA">
+                    <span>JPA</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-section">
+                <h5 class="tech-section-title">Databases & Middleware</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
+                    <span>Redis</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg"
+                      alt="RabbitMQ">
+                    <span>RabbitMQ</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="assets/minio.png" alt="MinIO">
+                    <span>MinIO</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
+                      alt="Kafka">
+                    <span>Kafka</span>
+                  </div>
+                  <div class="tech-card-compact" style="justify-content: center;">
+                    <span>SSE</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-section">
+                <h5 class="tech-section-title">Frontend</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js">
+                    <span>Vue.js</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+                    <span>HTML</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+                    <span>CSS</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                      alt="JavaScript">
+                    <span>JavaScript</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-section">
+                <h5 class="tech-section-title">Dev Tools</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg"
+                      alt="IntelliJ">
+                    <span>IntelliJ IDEA</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg"
+                      alt="Eclipse">
+                    <span>Eclipse</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                      alt="Docker">
+                    <span>Docker</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-section">
+                <h5 class="tech-section-title">Collaboration Tools</h5>
+                <div class="tech-grid-row">
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
+                      alt="Github">
+                    <span>Github</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg"
+                      alt="Notion">
+                    <span>Notion</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/subversion/subversion-original.svg"
+                      alt="SVN">
+                    <span>SVN</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Slack">
+                    <span>Slack</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira">
+                    <span>Jira</span>
+                  </div>
+                  <div class="tech-card-compact">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                    <span>Figma</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section" id="experience">
+      <div class="experience-inner">
+        <div class="experience-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-sub">성장을 위해 끊임없이 도전해온 기록들</p>
+        </div>
+
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp1.png" alt="SSAFY 활동 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2025.01 ~ 현재</div>
+              <h3 class="exp-title">삼성청년SW아카데미 (SSAFY) 13기</h3>
+              <p class="exp-role">교육생 (Java 전공)</p>
+              <ul class="exp-desc-list">
+                <li>알고리즘 및 CS 지식 심화 학습</li>
+                <li>Spring Boot 기반의 백엔드 실무 프로젝트 진행</li>
+                <li>Agile 방법론을 적용한 협업 경험</li>
+                <li>기업연계 프로젝트(SEMES)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp7.png" alt="싸피셜 활동 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2025.02 ~ 현재</div>
+              <h3 class="exp-title">SSAFYcial (싸피셜) 기자단 13기</h3>
+              <p class="exp-role">콘텐츠 에디터 / 기자</p>
+              <ul class="exp-desc-list">
+                <li>SSAFY 내 다양한 교육 과정 및 행사 취재</li>
+                <li>개발자 인터뷰 및 기술 관련 카드뉴스/블로그 콘텐츠 제작</li>
+                <li>공식 SNS 채널을 통한 교육생 소통 및 홍보 활동</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp2.jpg" alt="인턴십 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2023.08 ~ 2024.03</div>
+              <h3 class="exp-title">인턴십</h3>
+              <p class="exp-role">백엔드 개발 인턴 (8개월)</p>
+              <ul class="exp-desc-list">
+                <li><strong>약 5,000명 유저</strong> 대상 교육·학사 행정 시스템 개발 및 운영</li>
+                <li>사각 지대에 놓인 아동들을 위한 교육 프로젝트 참여 및 신규 기능 개발</li>
+                <li>레거시 시스템 유지보수 및 성능 개선</li>
+                <li>현업 개발 프로세스 경험 (SVN, 코드 리뷰, 이슈 트래킹)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp3.webp" alt="학술엑스포 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2023.11</div>
+              <h3 class="exp-title">2023 학술엑스포 (쇼미더동서 AI)</h3>
+              <p class="exp-role">SW-AI 프로그램 성과 전시</p>
+              <ul class="exp-desc-list">
+                <li>'식단 관리 구독 서비스' 프로젝트 부스 운영 및 시연</li>
+                <li>관람객 대상 서비스 로직 설명 및 피드백 수집</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp4.webp" alt="카카오 부트캠프 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2022.10</div>
+              <h3 class="exp-title">카카오엔터프라이즈 클라우드 부트캠프</h3>
+              <p class="exp-role">교육 수료생</p>
+              <ul class="exp-desc-list">
+                <li>클라우드 인프라 기초 및 Kubernetes 실습</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp5.webp" alt="해외 교육 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2021.11 ~ 2022.02</div>
+              <h3 class="exp-title">필리핀 UC대학교 동계 해외교육</h3>
+              <p class="exp-role">어학 및 프로그래밍 연수</p>
+              <ul class="exp-desc-list">
+                <li>1:1 영어 회화 화상 강의 수료</li>
+                <li>현지 학생들과의 프로그래밍 프로젝트 협업</li>
+                <li>글로벌 커뮤니케이션 역량 강화</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-img-box">
+              <img src="assets/exp6.webp" alt="튜터링 사진">
+            </div>
+            <div class="exp-content">
+              <div class="exp-date">2021.10 ~ 2021.12</div>
+              <h3 class="exp-title">창의적 생활코딩 튜터링</h3>
+              <p class="exp-role">SW중심대학사업단 튜터(Tutor)</p>
+              <ul class="exp-desc-list">
+                <li>저학년 학생 대상 프로그래밍 기초 멘토링</li>
+                <li>알고리즘 문제 풀이 가이드 및 코드 리뷰</li>
+                <li>학습 동기 부여 및 진로 상담 진행</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+      <div class="projects-inner">
+        <div class="projects-header">
+          <h2 class="projects-title">Projects</h2>
+          <p class="projects-sub">문제를 해결하기 위해 치열하게 고민했던 기록들입니다.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="project-card" data-id="1">
+            <div class="project-bg"
+              style="background-image:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">CUDA & Image Processing</div>
+                <div class="project-name">IMPRESSER</div>
+                <div class="project-desc">대용량 BMP to TIFF 고속 압축 변환</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="2">
+            <div class="project-bg"
+              style="background-image:url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">Blockchain Platform</div>
+                <div class="project-name">Ma-Joong</div>
+                <div class="project-desc">투명한 기부 문화를 위한 퇴역마 후원 서비스</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="3">
+            <div class="project-bg"
+              style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">AI & WebRTC Interview</div>
+                <div class="project-name">Re:View</div>
+                <div class="project-desc">AI 기반 맞춤형 모의 면접 및 피드백 서비스</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="4">
+            <div class="project-bg" style="background-image:url('assets/aptZip.png'); opacity: 0.6;"></div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">Real Estate Service</div>
+                <div class="project-name">APT.ZIP</div>
+                <div class="project-desc">부동산 실거래가 정보 서비스</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="5">
+            <div class="project-bg" style="background-image:url('assets/friendsFood.png'); opacity: 0.6;"></div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">E-Commerce</div>
+                <div class="project-name">FRIENDS FOOD</div>
+                <div class="project-desc">식단 구독 이커머스 서비스</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="6">
+            <div class="project-bg" style="background-image:url('assets/internbg.png');"></div>
+            <div class="project-overlay">
+              <div class="project-info">
+                <div class="project-tagline">Education Admin Platform</div>
+                <div class="project-name">천천히 함께</div>
+                <div class="project-desc">교육·학사 행정 시스템 개선 프로젝트</div>
+              </div>
+              <div class="project-arrow">↗</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div id="project-details-container" class="project-details-container">
+      <section id="p-detail-1" class="detail-slide" style="background-image: url('assets/impresser2bg.png');">
+        <div class="bg-text">IMPRESSER</div>
+
+        <div class="detail-header-top">
+          <span class="detail-tag-top">SEMES 기업 연계 프로젝트</span>
+          <span class="detail-tag-top">이미지 가속 압축 소프트웨어 개발</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">
+              IMPRESSER
+              <a href="https://github.com/Impresser/impresser" target="_blank" class="github-logo-link">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
+                  alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
+              </a>
+              <a href="https://velog.io/@heesan/series/IMPRESSER" target="_blank" class="blog-btn">블로그 ↗</a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 35%;">35%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/impresseritem.png" alt="IMPRESSER" class="detail-mockup">
+              <!-- 기술 스택 -->
+              <div class="detail-tech-stack">
+                <!-- Backend -->
+                <div class="tech-category-small">
+                  <h4>Backend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Java"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Boot"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                        alt="Spring Boot" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Security"><img src="assets/spring security.png"
+                        alt="Spring Security" class="tech-icon-small filter-green"></span>
+                    <span class="tech-tip-wrap" data-tech="MySQL"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Redis"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="RabbitMQ"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg"
+                        alt="RabbitMQ" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Swagger"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg"
+                        alt="Swagger" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="MinIO"><img src="assets/minio.png" alt="MinIO"
+                        class="tech-icon-small"></span>
+                  </div>
+                </div>
+                <!-- Image -->
+                <div class="tech-category-small">
+                  <h4>Image</h4>
+                  <div class="tech-icons">
+                    <span class="tech-text-pill">CUDA</span>
+                    <span class="tech-text-pill">nvTIFF</span>
+                    <span class="tech-text-pill">libtiff</span>
+                    <span class="tech-text-pill">libcurl</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-right">
+            <div class="detail-body">
+
+              <!-- 프로젝트 설명 -->
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>
+                  IMPRESSER는 반도체 설비에서 발생하는 초대형 BMP 이미지를 고속으로 TIFF 타입으로 압축·변환하기 위해 개발된
+                  <strong>SEMES 기업 연계 프로젝트</strong>입니다.
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 6명 (이미지 압축 및 생성 & 백엔드 3, 인프라 1, 프론트 2)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 이미지 압축 및 생성 & 백엔드</div>
+                  <div class="meta-item"><strong>기간:</strong> 2025.10 — 2025.12</div>
+                </div>
+              </div>
+
+              <!-- 담당 역할 -->
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li><span class="highlight-text">CUDA</span> 기반 병렬 처리 커널 설계·구현 → 초대형 BMP 이미지 생성 엔진 구축</li>
+                  <li>GPU/CPU 선택형 <span class="highlight-text">nvTIFF</span> 고속 압축 처리 및 메모리 사용 최적화</li>
+                  <li><span class="highlight-text">RabbitMQ</span> 비동기 파이프라인 설계</li>
+                  <li><span class="highlight-text">SSE</span> 실시간 진행률/완료 이벤트 스트림 구현</li>
+                  <li>대시보드/이미지 생성/<span class="highlight-text">압축 이력 API</span> 개발</li>
+                </ul>
+              </div>
+
+              <!-- 주요 성과 -->
+              <div class="detail-item">
+                <h3>📈 주요 성과</h3>
+                <ul class="detail-list">
+                  <li><strong><span class="highlight-text">CUDA 기반 이미지 생성 87.5% 단축</span>:</strong> CPU 20초 → GPU 2.5초로
+                    개선</li>
+                  <li><strong><span class="highlight-text">nvTIFF 압축 처리 75% 단축</span>:</strong> 기업 기존 7.1초 → 1.78초로 고속화
+                  </li>
+                  <li>2GB 이미지도 무리 없이 처리하는 <strong><span class="highlight-text">안정적 비동기 큐 아키텍처 구축</span></strong></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="p-detail-2" class="detail-slide" style="background-image: url('assets/majoongbg.png');">
+        <div class="bg-text">Ma-Joong</div>
+
+        <div class="detail-header-top">
+          <span class="detail-tag-top">Blockchain Donation Platform</span>
+          <span class="detail-tag-top">투명한 기부 문화를 위한 블록체인 플랫폼</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">Ma-Joong
+              <a href="https://github.com/ma-joong/majoong" target="_blank" class="github-logo-link">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
+                  alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
+              </a>
+              <a href="https://velog.io/@heesan/%EC%91%A5%EC%91%A5-%EC%84%B1%EC%9E%A5-SSAFY-%ED%8A%B9%ED%99%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0"
+                target="_blank" class="blog-btn">블로그 ↗</a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 45%;">45%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/majoongitem.png" alt="Ma-Joong" class="detail-mockup">
+              <!-- 기술 스택: Ma-Joong -->
+              <div class="detail-tech-stack">
+                <!-- Backend Category -->
+                <div class="tech-category-small">
+                  <h4>Backend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Java"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Boot"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                        alt="Spring Boot" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Security"><img src="assets/spring security.png"
+                        alt="Spring Security" class="tech-icon-small filter-green"></span>
+                    <span class="tech-tip-wrap" data-tech="MySQL"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Redis"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Swagger"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg"
+                        alt="Swagger" class="tech-icon-small"></span>
+                    <span class="tech-text-pill">Spring Batch</span>
+                    <span class="tech-text-pill">OpenAI</span>
+                    <span class="tech-text-pill">Kakao Pay</span>
+                  </div>
+                </div>
+                <!-- Blockchain Category -->
+                <div class="tech-category-small">
+                  <h4>Blockchain</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Solidity"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg"
+                        alt="Solidity" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Web3.js"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/web3js/web3js-original.svg"
+                        alt="Web3.js" class="tech-icon-small"></span>
+                    <span class="tech-text-pill">Hardhat</span>
+                    <span class="tech-text-pill">OpenZeppelin</span>
+                    <span class="tech-text-pill">Etherscan</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="detail-body">
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>은퇴 경주마를 보호하는 농장과 후원자를 연결하는 서비스입니다. 블록체인으로 기부금 투명성을 보장하는 프로젝트입니다.<br>
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 6명 (블록체인 & 백엔드 3, 인프라 1, 프론트 2)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 블록체인 & 백엔드</div>
+                  <div class="meta-item"><strong>기간:</strong> 2025.08 — 2025.10</div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li><span class="highlight-text">Solidity</span> 스마트 컨트랙트 개발</li>
+                  <li><span class="highlight-text">Web3j</span> 활용 Java 백엔드-블록체인 연동</li>
+                  <li><span class="highlight-text">Spring Batch</span> 정기 데이터 처리(월간 리포트)</li>
+                  <li>사업자 진위 여부 API, <span class="highlight-text">KakaoPay</span>, 금융 API, 리포트 이미지/내용 생성</li>
+                  <li>NFC · QR 기반 티켓 기능 구현</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h3>📈 주요 성과</h3>
+                <ul class="detail-list">
+                  <li>기부금 투명성 <span class="highlight-text">100% 보장</span>: 토큰 발행→금고 락업→증빙 출금→소각 프로세스</li>
+                  <li>AI 자동화로 농장주 행정 업무 최소화 (영수증 자동 요약, 월간 리포트 생성)</li>
+                  <li>복잡한 정산 로직의 <span class="highlight-text">트랜잭션 무결성</span> 확보 (DB↔블록체인↔금융망 동기화)</li>
+                  <li><span class="highlight-text">Spring Batch</span> CHUNK 방식 채택으로 대량 데이터 안정적 처리 (<span
+                      class="highlight-text">60초 → 20초, 66% 단축</span>)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="p-detail-3" class="detail-slide" style="background-image: url('assets/reviewbg.png');">
+        <div class="detail-header-top">
+          <span class="detail-tag-top">AI & WebRTC Interview Solution</span>
+          <span class="detail-tag-top">AI 기반 맞춤형 모의 면접 및 피드백 서비스</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">Re:View
+              <span style="font-size: 0.5em; vertical-align: middle;">🎖️(최우수상)</span>
+              <a href="https://github.com/ReView-Project-Team-06-DevKindergarten/review-ai-interview-project"
+                target="_blank" class="github-logo-link">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
+                  alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
+              </a>
+              <a href="https://velog.io/@heesan/%EC%91%A5%EC%91%A5-%EC%84%B1%EC%9E%A5-SSAFY-%ED%8A%B9%ED%99%94%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-jxc3ay5s"
+                target="_blank" class="blog-btn">블로그 ↗</a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 25%;">25%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/reviewitem.png" alt="Re:View Mockup" class="detail-mockup">
+              <!-- 기술 스택: Re:View -->
+              <div class="detail-tech-stack">
+                <!-- Backend -->
+                <div class="tech-category-small">
+                  <h4>Backend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Java 17"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java 17"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Boot"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                        alt="Spring Boot" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Security"><img src="assets/spring security.png"
+                        alt="Spring Security" class="tech-icon-small filter-green"></span>
+                    <span class="tech-tip-wrap" data-tech="MySQL"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Redis"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Kafka"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
+                        alt="Kafka" class="tech-icon-small"></span>
+                    <span class="tech-text-pill">JWT</span>
+                    <span class="tech-text-pill">Spring Data JPA</span>
+                    <span class="tech-text-pill">Spring AI</span>
+                  </div>
+                </div>
+
+                <!-- AI -->
+                <div class="tech-category-small">
+                  <h4>AI</h4>
+                  <div class="tech-icons">
+                    <span class="tech-text-pill">OpenAI Whisper</span>
+                    <span class="tech-text-pill">DeepFace</span>
+                    <span class="tech-text-pill">KoBERT</span>
+                    <span class="tech-text-pill">OpenAI</span>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="detail-body">
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>
+                  사용자의 이력서를 분석해 맞춤형 질문을 생성하고, WebRTC 화상 면접 후 AI가 답변(STT), 표정, 시선을 분석해 상세 피드백과 모범 답안을 제공
+                  하는 서비스입니다.<br>
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 6명 (AI 1, 백엔드 2, 프론트 3)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 백엔드</div>
+                  <div class="meta-item"><strong>기간:</strong> 2025.07 — 2025.08</div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li><span class="highlight-text">Kafka</span> 기반 비동기 시스템 구축</li>
+                  <li><span class="highlight-text">AI 예시 답안</span> 개발 및 화상 면접(<span
+                      class="highlight-text">OpenVidu</span>) 기능 구현</li>
+                  <li>이력서·포트폴리오·답변 스크립트 파일 관리 시스템 (S3, OCR) 구축</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h3>📈 성과</h3>
+                <ul class="detail-list">
+                  <li><strong><span class="highlight-text">Kafka 도입으로 피드백 시간 50% 단축</span> (4분 → 2분)</strong>: 비동기 이벤트
+                    기반 아키텍처로 전환하여 영상 분석 병렬 처리</li>
+                  <li>꼬리 질문 및 STAR 기법 기반의 <span class="highlight-text">고도화된 AI 면접관</span> 구현</li>
+                  <li><span class="highlight-text">WebSocket & Redis</span> 활용 실시간 분석 결과 전송 시스템 구축</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p-detail-4" class="detail-slide" style="background-image: url('assets/aptzipbg.png');">
+        <div class="detail-header-top">
+          <span class="detail-tag-top">real estate services</span>
+          <span class="detail-tag-top">부동산 실거래가 조회 서비스</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">APT.ZIP <span
+                style="font-size: 0.5em; vertical-align: middle;">🎖️(최우수상)</span>
+              <a href="https://github.com/orgs/Mt-Ugh/repositories" target="_blank" class="github-logo-link">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
+                  alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
+              </a>
+              <a href="https://velog.io/@heesan/%EC%91%A5%EC%91%A5-%EC%84%B1%EC%9E%A5-SSAFY-%EA%B4%80%ED%86%B5-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B6%80%EB%94%AA%ED%9E%8C-%EA%B8%B0%EC%88%A0%EC%9D%98-%EB%B2%BD%EA%B3%BC-%EB%8F%8C%ED%8C%8C%EA%B5%AC"
+                target="_blank" class="blog-btn">블로그 ↗</a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%;">65%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/aptzipitem.png" alt="APT.ZIP" class="detail-mockup">
+              <!-- 기술 스택: APT.ZIP -->
+              <div class="detail-tech-stack">
+                <!-- Backend -->
+                <div class="tech-category-small">
+                  <h4>Backend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Spring Boot"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"
+                        alt="Spring Boot" class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring Security"><img src="assets/spring security.png"
+                        alt="Spring Security" class="tech-icon-small filter-green"></span>
+                    <span class="tech-tip-wrap" data-tech="MySQL"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Redis"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="MinIO"><img src="assets/minio.png" alt="MinIO"
+                        class="tech-icon-small"></span>
+                    <span class="tech-text-pill">OAuth 2.0</span>
+                    <span class="tech-text-pill">JPA</span>
+                    <span class="tech-text-pill">JWT</span>
+                    <span class="tech-text-pill">Kakao Maps</span>
+                    <span class="tech-text-pill">Naver News</span>
+                    <span class="tech-text-pill">OpenAI</span>
+                  </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="tech-category-small">
+                  <h4>Frontend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Vue.js"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js"
+                        class="tech-icon-small"></span>
+                    <span class="tech-text-pill">Pinia</span>
+                    <span class="tech-text-pill">Axios</span>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="detail-body">
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>실거래 정보를 지도상에서 직관적으로 확인하고, 부동산 관련 궁금증을 AI 챗봇을 통해 해결할 수 있는 웹 플랫폼입니다. 시세 조회뿐만 아니라 주변 상권 정보, 실시간 부동산 뉴스,
+                  관심 매물 등록 및 Q&A 게시판을 제공합니다.<br>
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 2명 (풀스택 2)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 풀스택</div>
+                  <div class="meta-item"><strong>기간:</strong> 2025.05 — 2023.06</div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li>실거래가 조회, <span class="highlight-text">AI 챗봇</span> 기능 설계·구현</li>
+                  <li><span class="highlight-text">Kakao Map API</span> 연동 지도 시각화</li>
+                  <li><span class="highlight-text">OpenAI & Naver News API</span> 외부 연동</li>
+                  <li><span class="highlight-text">Redis</span> 캐싱 전략 및 <span class="highlight-text">MinIO</span> 객체
+                    스토리지 관리</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h3>📈 주요 성과</h3>
+                <ul class="detail-list">
+                  <li><strong><span class="highlight-text">쿼리 복잡도 개선:</span></strong> 디비 조회 시 과도하게 복잡해진 조인 구조를 분석하여 핵심
+                    테이블 중심 반정규화 적용</li>
+                  <li><strong><span class="highlight-text">대용량 검색 성능 최적화:</span></strong> 270만 건 검색 시 12초 걸리던 API를 인덱스
+                    튜닝으로 <span class="highlight-text">1초 미만(약 92% 감소)</span>으로 개선</li>
+                  <li><strong><span class="highlight-text">지도 기반 대용량 데이터 시각화:</span></strong> 법정동 계층 구조로 100만+ 아파트 실거래
+                    데이터를 지도 마커로 표출</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p-detail-5" class="detail-slide" style="background-image: url('assets/friendsfoodbg.png');">
+        <div class="bg-text">FRIENDS FOOD</div>
+
+        <div class="detail-header-top">
+          <span class="detail-tag-top">E-Commerce</span>
+          <span class="detail-tag-top">식단 구독 이커머스 서비스</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">FRIENDS FOOD
+              <a href="https://github.com/Lee-heesan/FriendsHub" target="_blank" class="github-logo-link">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3-.405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015  2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z'/%3E%3C/svg%3E"
+                  alt="GitHub" class="github-icon-img" style="width:40px;height:40px;vertical-align:middle;" />
+              </a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%;">80%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/friendsfooditem.png" alt="Friends Food" class="detail-mockup">
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="detail-body">
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>맞춤형 건강식단을 구독하는 이커머스 플랫폼입니다. 사용자의 선호도와 영양정보 기반으로 식단을 추천합니다.<br>
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 2명 (풀스택 2)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 풀스택</div>
+                  <div class="meta-item"><strong>기간:</strong> 2023.03 — 2023.09</div>
+                </div>
+              </div>
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li><span class="highlight-text">상품 · 주문 · 장바구니</span> 핵심 비즈니스 로직 개발</li>
+                  <li>주문 생성·취소 <span class="highlight-text">재고 차감/복구 트랜잭션</span> 처리로 데이터 무결성 확보</li>
+                  <li><span class="highlight-text">회원 인증·인가</span> 및 관리자/사용자 권한 체계 구축</li>
+                  <li>상품 이미지 업로드 및 관리 기능 구현</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <h3>📈 성과</h3>
+                <ul class="detail-list">
+                  <li>학술엑스포 사용자 만족도 <span class="highlight-text">4.8/5.0</span> 달성</li>
+                  <li><strong><span class="highlight-text">확장성 있는 데이터 모델링:</span></strong> JPA 연관관계 매핑을 통해 상품–주문–회원 구조를
+                    객체지향적으로 구현하여 유지보수성 향상</li>
+                  <li><strong><span class="highlight-text">동적 검색 최적화:</span></strong> QueryDSL 기반 다중 조건 검색(상품명/가격대/상태)으로
+                    타입 세이프한 검색 기능 구현</li>
+                  <li><strong><span class="highlight-text">트랜잭션 기반 주문 프로세스:</span></strong> 재고 차감, 주문 생성·취소 로직을 원자적으로
+                    처리해 데이터 무결성 보장</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p-detail-6" class="detail-slide" style="background-image: url('assets/internbg.png');">
+        <div class="bg-text">천천히 함께</div>
+
+        <div class="detail-header-top">
+          <span class="detail-tag-top">Internship Project</span>
+          <span class="detail-tag-top">교육·학사 행정 시스템 고도화</span>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="header-divider"></div>
+            <h2 class="detail-title-top" style="margin: 0; display: flex; align-items: center; gap: 24px;">천천히 함께
+              <a href="https://www.slowtogether.or.kr/index.do" target="_blank" class="blog-btn"
+                style="margin-top:0;">사이트 ↗</a>
+            </h2>
+          </div>
+          <div class="contribution-row">
+            <h3>기여도</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 30%;">30%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-inner">
+          <div class="slide-left">
+            <div class="mockup-wrapper">
+              <img src="assets/internitem.png" alt="천천히 함께" class="detail-mockup">
+              <!-- 기술 스택: 천천히 함께 -->
+              <div class="detail-tech-stack">
+                <!-- Frontend -->
+                <div class="tech-category-small">
+                  <h4>Frontend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="HTML5"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="CSS3"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="JavaScript"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript" class="tech-icon-small"></span>
+                    <span class="tech-text-pill">JSP (JSTL)</span>
+                  </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="tech-category-small">
+                  <h4>Backend</h4>
+                  <div class="tech-icons">
+                    <span class="tech-tip-wrap" data-tech="Java"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        class="tech-icon-small"></span>
+                    <span class="tech-tip-wrap" data-tech="Spring MVC"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"
+                        class="tech-icon-small"></span>
+                    <span class="tech-text-pill">Apache Tomcat</span>
+                    <span class="tech-text-pill">Summernote API</span>
+                    <span class="tech-text-pill">DataTables API</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-right">
+            <div class="detail-body">
+              <div class="detail-item">
+                <h3>📄 프로젝트 설명</h3>
+                <p>
+                  사내 교육·학사 행정 시스템의 사용성 개선과 업무 효율화를 목표로 요구사항을 분석하고, 핵심 기능의 안정성과 성능을 강화한 인턴십 프로젝트입니다.
+                </p>
+                <div class="project-meta">
+                  <div class="meta-item"><strong>인원:</strong> 8명 (타 기업 2, 백엔드 2, 디자이너 1, 프론트엔드 2, PM 1)</div>
+                  <div class="meta-item"><strong>포지션:</strong> 풀스택 인턴</div>
+                  <div class="meta-item"><strong>기간:</strong> 2023.10 — 2024.01</div>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <h3>👤 담당 역할</h3>
+                <ul class="detail-list">
+                  <li><span class="highlight-text">REST API</span> 설계 및 구현(계층 분리, 입력 검증, 공통 예외 응답)</li>
+                  <li>조회 트래픽 구간 <span class="highlight-text">쿼리 튜닝</span> 및 캐싱 전략 도입</li>
+                  <li><span class="highlight-text">멘토–멘티 매칭</span> 로직 설계 및 구현(선호도/가용시간 기반)</li>
+                  <li><span class="highlight-text">멘티·멘토 일정 관리</span> 기능(예약/캘린더) 및 알림 처리</li>
+                </ul>
+              </div>
+
+              <div class="detail-item">
+                <h3>📈 주요 성과</h3>
+                <ul class="detail-list">
+                  <li><strong><span class="highlight-text">약 5,000명</span> 유저 보유</strong></li>
+                  <li>핵심 페이지 평균 응답시간 <span class="highlight-text">~35% 단축</span> (인덱스/조회 범위 최적화)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

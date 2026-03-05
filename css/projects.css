@@ -1,0 +1,248 @@
+/* ============================
+   Projects Section Styles — Coverflow Carousel (Absolute)
+   ============================ */
+
+.projects-section {
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0 60px;
+    overflow: hidden;
+}
+
+.projects-inner {
+    width: 100%;
+    max-width: 100%;
+}
+
+.projects-header {
+    margin-bottom: 56px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.projects-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+}
+
+.projects-sub {
+    font-size: 18px;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* ---- Coverflow Track (Absolute Position) ---- */
+.card-carousel-viewport {
+    width: 100%;
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+}
+
+.card-grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.project-card {
+    position: absolute;
+    width: 260px;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    /* center by default */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+        box-shadow 0.5s ease,
+        opacity 0.5s ease;
+    transform-origin: center center;
+    will-change: transform, opacity;
+}
+
+/* ── 중앙 (active) ── */
+.project-card.is-active {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28);
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* ── 왼쪽 1번째 ── */
+.project-card.is-prev {
+    transform: translate(calc(-50% - 230px), -50%) scale(0.82) rotateY(15deg);
+    opacity: 0.75;
+    z-index: 7;
+    pointer-events: auto;
+}
+
+/* ── 오른쪽 1번째 ── */
+.project-card.is-next {
+    transform: translate(calc(-50% + 230px), -50%) scale(0.82) rotateY(-15deg);
+    opacity: 0.75;
+    z-index: 7;
+    pointer-events: auto;
+}
+
+/* ── 왼쪽 2번째 ── */
+.project-card.is-prev2 {
+    transform: translate(calc(-50% - 400px), -50%) scale(0.65) rotateY(22deg);
+    opacity: 0.4;
+    z-index: 4;
+    pointer-events: auto;
+}
+
+/* ── 오른쪽 2번째 ── */
+.project-card.is-next2 {
+    transform: translate(calc(-50% + 400px), -50%) scale(0.65) rotateY(-22deg);
+    opacity: 0.4;
+    z-index: 4;
+    pointer-events: auto;
+}
+
+.project-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+    filter: brightness(0.72);
+}
+
+.project-card.is-active .project-bg {
+    filter: brightness(0.6);
+}
+
+.project-card:hover .project-bg {
+    filter: brightness(0.5);
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+}
+
+.project-info {
+    flex: 1;
+    padding-right: 12px;
+}
+
+.project-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    color: #a5b4fc;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-name {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.project-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.project-arrow {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #000;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translate(-6px, 6px);
+}
+
+.project-card.is-active:hover .project-arrow,
+.project-card:hover .project-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* ---- 하단 내비게이션 ---- */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+}
+
+.carousel-dot.is-active {
+    background: #6366f1;
+    width: 24px;
+    border-radius: 4px;
+}
+
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    background: white;
+    font-size: 20px;
+    color: #374151;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.carousel-btn:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}

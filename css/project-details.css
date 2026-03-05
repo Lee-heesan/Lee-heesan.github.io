@@ -1,0 +1,427 @@
+/* ============================
+   Project Details Styles
+   ============================ */
+
+.project-details-container {
+    width: 100%;
+    background: #111827;
+    color: #fff;
+}
+
+.detail-slide {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.bg-text {
+    position: absolute;
+    bottom: -5%;
+    right: -5%;
+    top: auto;
+    transform: none;
+    font-size: 14vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.detail-header-top {
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    z-index: 10;
+    color: #fff;
+    text-align: left;
+    overflow: visible;
+}
+
+.detail-tag-top {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #a5b4fc;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.detail-title-top {
+    font-size: 60px;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.contribution-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.contribution-row h3 {
+    font-size: 18px;
+    color: #fbbf24;
+    margin: 0;
+    font-weight: 700;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contribution-row .progress-bar {
+    width: 400px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.contribution-row .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.header-divider {
+    width: 4px;
+    height: 60px;
+    background: #4f46e5;
+    border-radius: 2px;
+}
+
+.slide-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.slide-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.mockup-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
+    margin-bottom: 30px;
+}
+
+.detail-mockup {
+    width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform;
+}
+
+.mockup-wrapper:hover .detail-mockup {
+    animation: mockup-shake 0.9s cubic-bezier(.36, .07, .19, .97) infinite;
+}
+
+@keyframes mockup-shake {
+    0% {
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    10% {
+        transform: translateX(-10px) rotateY(-2deg);
+    }
+
+    25% {
+        transform: translateX(-14px) rotateY(-3deg);
+    }
+
+    40% {
+        transform: translateX(-8px) rotateY(-1deg);
+    }
+
+    50% {
+        transform: translateX(0) rotateY(0deg);
+    }
+
+    60% {
+        transform: translateX(8px) rotateY(1deg);
+    }
+
+    75% {
+        transform: translateX(14px) rotateY(3deg);
+    }
+
+    90% {
+        transform: translateX(10px) rotateY(2deg);
+    }
+
+    100% {
+        transform: translateX(0) rotateY(0deg);
+    }
+}
+
+.slide-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 48px;
+    padding-bottom: 0;
+    padding-right: 0;
+    text-align: left;
+    max-width: 700px;
+}
+
+.detail-body {
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+.detail-item {
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.detail-item h3 {
+    font-size: 16px;
+    color: #fbbf24;
+    margin-bottom: 8px;
+    margin-top: 0;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.3px;
+}
+
+.detail-item p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.96);
+    font-weight: 500;
+    margin: 0;
+    word-break: keep-all;
+}
+
+.project-meta {
+    margin-top: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.project-meta .meta-item {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.detail-list li:last-child {
+    margin-bottom: 0;
+}
+
+.detail-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fbbf24;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.blog-btn {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 9px 17px;
+    background: rgba(251, 191, 36, 0.15);
+    border: 1.5px solid #fbbf24;
+    color: #fbbf24;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.detail-title-top .blog-btn {
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+.blog-btn:hover {
+    background: #fbbf24;
+    color: #111827;
+    transform: translateX(2px);
+}
+
+.github-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.github-logo-link:hover {
+    transform: scale(1.1);
+}
+
+.github-icon-img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    vertical-align: middle;
+}
+
+.github-logo-link:hover .github-icon-img {
+    opacity: 1;
+}
+
+.detail-tech-stack {
+    margin-top: 0px;
+    padding-top: 0px;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    pointer-events: auto;
+    position: relative;
+    z-index: 20;
+}
+
+.tech-category-small {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tech-category-small h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fbbf24;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.tech-icon-small {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.tech-icon-small:hover {
+    opacity: 1;
+}
+
+.tech-text-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(251, 191, 36, 0.15);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    color: #fef3c7;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.highlight-text {
+    font-weight: 700;
+    color: #fef3c7;
+    background: none;
+    padding: 0;
+    border: none;
+    display: inline;
+    text-decoration: underline;
+    text-decoration-color: rgba(251, 191, 36, 0.95);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.08);
+}
+
+/* Hide FRIENDS FOOD project */
+.project-card[data-id="5"],
+#p-detail-5 {
+    display: none;
+}

@@ -1,0 +1,90 @@
+/* ============================
+   Responsive Styles
+   ============================ */
+
+/* Tablet and below */
+@media (max-width: 960px) {
+
+    /* About Section */
+    .about-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        min-height: auto;
+        padding-bottom: 60px;
+    }
+
+    .profile-area {
+        flex: 0 0 auto;
+        width: 280px;
+    }
+
+    .about-text-box {
+        text-align: left;
+    }
+
+    .bio-info-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .tech-stack-container {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    /* Experience Section */
+    .exp-list {
+        flex-direction: column;
+        gap: 30px;
+        transform: none !important;
+    }
+
+    .exp-item {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 100%;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .exp-img-box {
+        width: 100%;
+        height: 220px;
+        border-radius: 16px;
+    }
+
+    .exp-content {
+        padding: 0;
+    }
+}
+
+/* Project Details Responsive */
+@media (max-width: 1200px) {
+    .slide-inner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slide-left,
+    .slide-right {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .mockup-wrapper {
+        transform: none;
+        margin-bottom: 40px;
+    }
+
+    .detail-slide {
+        align-items: center;
+        padding-top: 150px;
+    }
+}

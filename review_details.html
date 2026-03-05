@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:View - 프로젝트 상세</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: 'Pretendard', sans-serif;">
+
+    <!-- 상세 페이지 컨테이너 -->
+    <section
+        style="padding: 60px 40px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+        <div style="max-width: 1400px; margin: 0 auto; width: 100%;">
+
+            <!-- 뒤로 가기 버튼 -->
+            <div style="margin-bottom: 30px;">
+                <a href="index.html#p-detail-3"
+                    style="display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: white; color: #4b5563; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 600; border: 1px solid #e5e7eb; transition: all 0.2s ease;">
+                    <span style="font-size: 16px;">←</span> 뒤로가기
+                </a>
+            </div>
+
+            <!-- 메인 그리드 레이아웃 -->
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: stretch;">
+
+                <!-- 왼쪽: 시스템 아키텍처 -->
+                <div
+                    style="background: white; border-radius: 20px; padding: 40px; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);">
+                    <div
+                        style="margin-bottom: 30px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #f3f4f6;">
+                        <h2
+                            style="font-size: 22px; font-weight: 800; color: #111827; margin: 0; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #2563eb;">📐</span> 시스템 아키텍처
+                        </h2>
+                    </div>
+                    <div
+                        style="display: flex; align-items: center; justify-content: center; height: calc(100% - 80px);">
+                        <img src="assets/review_architecture.png" alt="Re:View Architecture"
+                            style="width: 100%; height: auto; max-height: 600px; object-fit: contain; border-radius: 12px;">
+                    </div>
+                </div>
+
+                <!-- 오른쪽: 담당 역할 -->
+                <div
+                    style="background: white; border-radius: 20px; padding: 40px; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);">
+                    <div
+                        style="margin-bottom: 30px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #f3f4f6;">
+                        <h2
+                            style="font-size: 22px; font-weight: 800; color: #111827; margin: 0; display: flex; align-items: center; gap: 10px;">
+                            <span style="color: #2563eb;">👤</span> 담당 역할 & 성과
+                        </h2>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+
+                        <!-- Role Item 1 -->
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div
+                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
+                                1</div>
+                            <div>
+                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">Kafka
+                                    기반 비동기 시스템 구축</h3>
+                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
+                                    이벤트 기반 아키텍처를 설계하여 대용량 영상 분석 피드백 데이터를 비동기적으로 처리하고, 시스템 부하를 분산시키며 응답 속도를 최적화했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Role Item 2 -->
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div
+                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
+                                2</div>
+                            <div>
+                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">AI 예시
+                                    답안 개발 및 화상 면접 기능 구현</h3>
+                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
+                                    <span style="color: #2563eb; font-weight: 600;">OpenVidu</span>를 활용한 실시간 화상 면접 환경을
+                                    구축하고, 답변 데이터를 기반으로 한 AI 모범 답안 생성 로직을 개발했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Role Item 3 -->
+                        <div style="display: flex; gap: 16px; align-items: flex-start;">
+                            <div
+                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
+                                3</div>
+                            <div>
+                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">파일 관리
+                                    및 OCR 시스템 구축</h3>
+                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
+                                    <span style="color: #2563eb; font-weight: 600;">AWS S3</span> 기반의 안정적인 파일 업로드 시스템을
+                                    구축하고, <span style="color: #2563eb; font-weight: 600;">OCR</span> 기술을 도입하여 이력서 및
+                                    포트폴리오 텍스트 분석 자동화를 실현했습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JavaScript Modules -->
+    <script src="js/liquid-blob.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/experience.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

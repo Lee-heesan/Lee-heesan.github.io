@@ -1,0 +1,92 @@
+/* ============================
+   Hero Section Styles
+   ============================ */
+
+.hero-section {
+    height: 100vh;
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111827;
+}
+
+.bubble-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    z-index: 10;
+    width: 100%;
+}
+
+.bubble-text .hello {
+    font-size: 1.4rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.bubble-text .name {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+}
+
+.bubble-text .role {
+    font-size: 1.3rem;
+    color: #374151;
+    font-weight: 600;
+}
+
+svg#svg {
+    width: 90vmin;
+    height: 90vmin;
+    pointer-events: all;
+    filter: drop-shadow(0 0 30px rgba(79, 70, 229, 0.2));
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #9ca3af;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.scroll-hint span {
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(to bottom, #9ca3af, transparent);
+    animation: scrollLine 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: top;
+        opacity: 0;
+    }
+}
