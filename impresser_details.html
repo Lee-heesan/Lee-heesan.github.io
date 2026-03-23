@@ -52,85 +52,66 @@
                         style="margin-bottom: 30px; text-align: left; padding-bottom: 20px; border-bottom: 1px solid #f3f4f6;">
                         <h2
                             style="font-size: 22px; font-weight: 800; color: #111827; margin: 0; display: flex; align-items: center; gap: 10px;">
-                            <span style="color: #6366f1;">👤</span> 담당 역할
+                            <span style="color: #6366f1;">⚡</span> 핵심 기능
                         </h2>
                     </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
 
-                        <!-- Role Item 1 -->
-                        <div style="display: flex; gap: 16px; align-items: flex-start;">
-                            <div
-                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
-                                1</div>
-                            <div>
-                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">이미지 생성
-                                    엔진 구축</h3>
-                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
-                                    <span style="color: #4f46e5; font-weight: 600;">CUDA</span> 기반 병렬 처리 커널을 직접 설계하고
-                                    구현하여 초대형 BMP 이미지를 고속으로 생성했습니다.
-                                </p>
+                        <!-- 기능 1 -->
+                        <div
+                            style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(99, 102, 241, 0.1); transition: transform 0.2s;">
+                            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 6px;">
+                                <div
+                                    style="width: 28px; height: 28px; background: rgba(99, 102, 241, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #6366f1;">
+                                    ⚡</div>
+                                <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: #1f2937;">GPU 기반 고속 압축
+                                </h3>
                             </div>
+                            <p style="margin: 0; font-size: 13px; color: #6b7280; line-height: 1.4;">CPU 대비 최대 4배 빠른 속도
+                            </p>
                         </div>
 
-                        <!-- Role Item 2 -->
-                        <div style="display: flex; gap: 16px; align-items: flex-start;">
-                            <div
-                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
-                                2</div>
-                            <div>
-                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">고속 압축
-                                    & 최적화</h3>
-                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
-                                    GPU/CPU 선택형 <span style="color: #4f46e5; font-weight: 600;">nvTIFF</span> 압축 처리를
-                                    구현하고, 대용량 처리를 위한 메모리 사용을 최적화했습니다.
-                                </p>
+                        <!-- 기능 2 -->
+                        <div
+                            style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(16, 185, 129, 0.1); transition: transform 0.2s;">
+                            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 6px;">
+                                <div
+                                    style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #10b981;">
+                                    🎨</div>
+                                <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: #1f2937;">BMP 패턴 이미지 생성
+                                </h3>
                             </div>
+                            <p style="margin: 0; font-size: 13px; color: #6b7280; line-height: 1.4;">RGB 패턴 이미지 자동 생성
+                            </p>
                         </div>
 
-                        <!-- Role Item 3 -->
-                        <div style="display: flex; gap: 16px; align-items: flex-start;">
-                            <div
-                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
-                                3</div>
-                            <div>
-                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">비동기
-                                    파이프라인</h3>
-                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
-                                    <span style="color: #4f46e5; font-weight: 600;">RabbitMQ</span>를 활용한 비동기 작업 큐 아키텍처를
-                                    설계하여 시스템 안정성을 확보했습니다.
-                                </p>
+                        <!-- 기능 3 -->
+                        <div
+                            style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(245, 158, 11, 0.1); transition: transform 0.2s;">
+                            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 6px;">
+                                <div
+                                    style="width: 28px; height: 28px; background: rgba(245, 158, 11, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #f59e0b;">
+                                    📊</div>
+                                <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: #1f2937;">실시간 모니터링 대시보드
+                                </h3>
                             </div>
+                            <p style="margin: 0; font-size: 13px; color: #6b7280; line-height: 1.4;">작업 현황 및 성능 통계 모니터링
+                            </p>
                         </div>
 
-                        <!-- Role Item 4 -->
-                        <div style="display: flex; gap: 16px; align-items: flex-start;">
-                            <div
-                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
-                                4</div>
-                            <div>
-                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">실시간
-                                    스트림 구현</h3>
-                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
-                                    <span style="color: #4f46e5; font-weight: 600;">SSE</span>(Server-Sent Events)를 통해
-                                    작업 진행률과 완료 상태를 실시간으로 스트리밍했습니다.
-                                </p>
+                        <!-- 기능 4 -->
+                        <div
+                            style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(236, 72, 153, 0.1); transition: transform 0.2s;">
+                            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 6px;">
+                                <div
+                                    style="width: 28px; height: 28px; background: rgba(236, 72, 153, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #ec4899;">
+                                    🔬</div>
+                                <h3 style="margin: 0; font-size: 15px; font-weight: 700; color: #1f2937;">압축 성능 시뮬레이션
+                                </h3>
                             </div>
-                        </div>
-
-                        <!-- Role Item 5 -->
-                        <div style="display: flex; gap: 16px; align-items: flex-start;">
-                            <div
-                                style="min-width: 24px; height: 24px; background: #eff6ff; border-radius: 6px; color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; margin-top: 2px;">
-                                5</div>
-                            <div>
-                                <h3 style="font-size: 16px; font-weight: 700; color: #1f2937; margin: 0 0 6px 0;">REST
-                                    API 개발</h3>
-                                <p style="font-size: 15px; color: #4b5563; line-height: 1.6; margin: 0;">
-                                    대시보드 모니터링 및 이미지 생성/압축 이력 관리를 위한 전용 <span
-                                        style="color: #4f46e5; font-weight: 600;">API</span>를 개발했습니다.
-                                </p>
-                            </div>
+                            <p style="margin: 0; font-size: 13px; color: #6b7280; line-height: 1.4;">알고리즘 비교 및 최적 설정 추천
+                            </p>
                         </div>
 
                     </div>
